@@ -177,6 +177,7 @@ class DashboardController extends Controller
         $validatedData['title'] = $request->title;
         $validatedData['description'] = $request->description;
 
+        dd($request);
         if ($request->file('image')) {
             if ($request->oldImage) {
                 Storage::delete($request->oldImage);
@@ -185,7 +186,22 @@ class DashboardController extends Controller
         }
 
         CoverPage::whereId(1)->update($validatedData);
-        return redirect('/dashboard')->with('success', 'Berhasil Mengubah Sampul Halaman Beranda!');
+        return back()->with('success', 'Berhasil Mengubah Sampul Halaman Beranda!');
+    }
+
+    public function change_image_cover(Request $request)
+    {
+        $data = $request->image;
+        list($type, $data) = explode(';', $data);
+        list(, $data) = explode(',', $data);
+
+        $data = base64_decode($data);
+        $image_name = 'cover.jpg';
+        $path = public_path('storage/') . $image_name;
+
+        file_put_contents($path, $data);
+        return response()->json(['success' => 'done']);
+        // return back()->with('success', 'Berhasil Mengubah Gambar Sampul Halaman Beranda!');
     }
 
     public function reset_password(User $user)

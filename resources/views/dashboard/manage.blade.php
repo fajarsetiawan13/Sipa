@@ -16,17 +16,17 @@
                         <div class="flex flex-wrap w-full justify-center lg:justify-start">
                             <div class="p-3">
                                 <a href="/manage/posts">
-                                    <img class="mask mask-squircle" width="100" height="100" src="/img/admin-article.png" alt="Menu"/>
+                                    <img class="mask mask-squircle" width="100" height="100" src="/img/admin-article.webp" alt="Menu"/>
                                 </a>
                             </div>
                             <div class="p-3">
                                 <a href="/manage/messages">
-                                    <img class="mask mask-squircle" width="100" height="100" src="/img/admin-messages.png" alt="Menu"/>
+                                    <img class="mask mask-squircle" width="100" height="100" src="/img/admin-messages.webp" alt="Menu"/>
                                 </a>
                             </div>
                             <div class="p-3">
                                 <a href="/manage/cover">
-                                    <img class="mask mask-squircle" width="100" height="100" src="/img/admin-cover.png" alt="Menu"/>
+                                    <img class="mask mask-squircle" width="100" height="100" src="/img/admin-cover.webp" alt="Menu"/>
                                 </a>
                             </div>
                             {{-- <div class="p-3">

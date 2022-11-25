@@ -39,6 +39,7 @@ Route::get('/manage', [DashboardController::class, 'manage'])->middleware('admin
 Route::get('/manage/messages', [DashboardController::class, 'messages'])->middleware('admin');
 Route::get('/manage/cover', [DashboardController::class, 'edit_cover'])->middleware('admin');
 Route::put('/manage/cover', [DashboardController::class, 'change_cover']);
+Route::post('/manage/image-cover', [DashboardController::class, 'change_image_cover']);
 
 Route::get('/manage/posts', [PostController::class, 'posts'])->middleware('admin');
 Route::get('/manage/posts/new', [PostController::class, 'newPost'])->middleware('admin');

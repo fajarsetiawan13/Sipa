@@ -13,7 +13,7 @@
     <div class="modal-box">
         <label for="success-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
         <figure class="flex justify-center">
-            <img src="{{ asset('/img/icon-check.png') }}" alt="icon-check-png">
+            <img src="{{ asset('/img/icon-check.webp') }}" alt="icon-check-webp">
         </figure>
         <p class="mx-auto text-center">{{ session('success') }}</p>
         <div class="modal-action justify-center">
@@ -34,7 +34,7 @@
     <div class="modal-box">
         <label for="error-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
         <figure class="flex justify-center">
-            <img src="{{ asset('/img/icon-error.png') }}" alt="icon-error-png">
+            <img src="{{ asset('/img/icon-error.webp') }}" alt="icon-error-webp">
         </figure>
         <p class="mx-auto text-center">{{ session('error') }}</p>
         <div class="modal-action justify-center">
@@ -218,10 +218,10 @@
                             <div class="flex flex-col w-full gap-2 lg:w-1/4 lg:px-3">
                                 <div class="flex justify-center">
                                     <figure class="p-3">
-                                        @if(!empty($account[0]->image) && !($account[0]->image == 'default.png'))
+                                        @if(!empty($account[0]->image) && !($account[0]->image == 'default.webp'))
                                         <img src="{{ asset('storage/' . $account[0]->image) }}" class="rounded-box" alt="{{ auth()->user()->name }}" />
                                         @else
-                                        <img src="/img/default.png" class="rounded-box" alt="Current profile photo">
+                                        <img src="/img/default.webp" class="rounded-box" alt="Current profile photo">
                                         @endif
                                     </figure>
                                 </div>
