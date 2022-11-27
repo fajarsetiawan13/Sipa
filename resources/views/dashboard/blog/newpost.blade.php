@@ -46,7 +46,7 @@
                                 <div class="flex flex-col w-full gap-2 lg:w-1/4 lg:px-3">
                                     <div class="flex justify-center">
                                         <figure class="p-3">
-                                            <img src="/img/article.png" id="img-preview" class="img-preview rounded-box" alt="Current profile photo">
+                                            <img src="/img/article.webp" id="img-preview" class="img-preview rounded-box" alt="Current profile photo">
                                         </figure>
                                     </div>
                                     <div class="flex flex-wrap justify-center items-center">

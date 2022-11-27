@@ -19,13 +19,74 @@
         }
     });
     $(document).ready(function(){
-        const modalToggle = document.querySelector('#upload-modal');
-        $uploadCrop = $('div#image_upload.image_upload').croppie({
+        // Avatar Image
+        $avatarImage = $('#avatar_upload').croppie({
             enableExif: true,
-            viewport: { width: 330, height: 186, type: 'square', format: 'jpg' },
-            boundary: { width: 430, height: 286 }
+            viewport: { width: 200, height: 200, type: 'square', format: 'jpg' },
+            boundary: { width: 250, height: 250 }
         });
-        $('input#image_input').on('change', function(){
+        $('input#avatar_input').on('change', function(){
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $avatarImage.croppie('bind', {
+                    url: e.target.result
+                })
+            }
+            reader.readAsDataURL(this.files[0]);
+        });
+        $('button.crop_avatar').on('click', function(event) {
+            $avatarImage.croppie('result', {
+                type: 'canvas',
+                size: {width: 300, height: 300},
+            }).then(function (response){
+                $.ajax({
+                    url: "/dashboard/image-avatar",
+                    type: "POST",
+                    data: {"image":response},
+                });
+            }).then(function(){
+                setInterval(location.reload(), 3000);
+            });
+        });
+
+        // ODD Image
+        $oddImage = $('#odd_upload').croppie({
+            enableExif: true,
+            viewport: { width: 200, height: 200, type: 'square', format: 'jpg' },
+            boundary: { width: 250, height: 250 }
+        });
+        $('input#odd_input').on('change', function(){
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $oddImage.croppie('bind', {
+                    url: e.target.result
+                })
+            }
+            reader.readAsDataURL(this.files[0]);
+        });
+        $('button.crop_odd').on('click', function(event) {
+            $oddImage.croppie('result', {
+                type: 'canvas',
+                size: {width: 300, height: 300},
+            }).then(function (response){
+                $.ajax({
+                    url: "/dashboard/image-odd",
+                    type: "POST",
+                    data: {"image":response},
+                });
+            }).then(function(){
+                setInterval(location.reload(), 3000);
+            });
+        });
+
+        // Cover Image
+        const modalToggle = document.querySelector('#cover-modal');
+        $uploadCrop = $('#cover_upload').croppie({
+            enableExif: true,
+            viewport: { width: 256, height: 144, type: 'square', format: 'jpg' },
+            boundary: { width: 320, height: 240 }
+        });
+        $('input#cover_input').on('change', function(){
             var reader = new FileReader();
             reader.onload = function (e) {
                 $uploadCrop.croppie('bind', {
@@ -35,10 +96,10 @@
             modalToggle.checked = true;
             reader.readAsDataURL(this.files[0]);
         });
-        $('button.crop_image').on('click', function(event) {
+        $('button.crop_cover').on('click', function(event) {
             $uploadCrop.croppie('result', {
                 type: 'canvas',
-                size: {width: 640, height: 360},
+                size: {width: 568, height: 360},
             }).then(function (response){
                 $.ajax({
                     url: "/manage/image-cover",
@@ -51,6 +112,7 @@
                 });
             }).then(function(){
                 modalToggle.checked = false;
+                setInterval(location.reload(), 3000);
             });
         });
     })

@@ -99,8 +99,8 @@
                                 </div>
                                 <div class="flex flex-wrap justify-center items-center pt-3">
                                     <span class="sr-only">Choose profile photo</span>
-                                    <input type="file" id="image_input" name="image_input" class="image_input block w-full text-sm text-slate-500 file:rounded-xl file:text-sm file:py-2 file:px-4 file:border-0 file:bg-slate-300 hover:file:bg-slate-400"/>
-                                    @error('image_input')
+                                    <input type="file" id="cover_input" name="cover_input" class="cover_input block w-full text-sm text-slate-500 file:rounded-xl file:text-sm file:py-2 file:px-4 file:border-0 file:bg-slate-300 hover:file:bg-slate-400"/>
+                                    @error('cover_input')
                                     <label class="label">
                                         <span class="label-text-alt text-red-600">{{ $message }}</span>
                                     </label>
@@ -116,19 +116,19 @@
 
 </section>
 
-<input type="checkbox" id="upload-modal" class="modal-toggle" />
+<input type="checkbox" id="cover-modal" class="modal-toggle" />
 <div class="modal modal-bottom sm:modal-middle">
     <div class="modal-box w-5/6 max-w-3xl">
-        <label for="upload-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+        <label for="cover-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
         <h2 class="font-bold text-lg">Sesuaikan Gambar Sebelum Upload</h2>
         <p class="py-4">Pastikan foto/gambar terlihat jelas dan tidak melebihi batas ukuran 2 MB.</p>
         <div class="flex flex-col justify-between gap-2">
             <div class="flex">
-                <div id="image_upload" class="image_upload rounded-box"></div>
+                <div id="cover_upload" class="cover_upload rounded-box"></div>
             </div>
         </div>
         <div class="modal-action">
-            <button class="btn btn-primary crop_image text-white">Crop</button>
+            <button class="btn btn-primary crop_cover text-white">Crop</button>
         </div>
     </div>
 </div>

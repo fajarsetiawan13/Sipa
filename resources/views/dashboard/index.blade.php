@@ -189,7 +189,7 @@
                                         <tr>
                                             <th colspan="3">Foto ODD <span class="normal-case text-slate-500">(Maks. 5 Foto)</span></th>
                                             @if($photos->count() < 5)
-                                            <th colspan="1" class="flex justify-end"><label class="btn btn-sm bg-primary border-0 modal-button" for="photos-modal">Tambah Foto</label></th>
+                                            <th colspan="1" class="flex justify-end"><label class="btn btn-sm bg-primary border-0 modal-button" for="odd-modal">Tambah Foto</label></th>
                                             @else
                                             <th colspan="1" class="flex justify-end"><label class="btn btn-sm bg-primary border-0" disabled>Tambah Foto</label></th>
                                             @endif
@@ -226,7 +226,7 @@
                                     </figure>
                                 </div>
                                 <div class="flex justify-center items-center">
-                                    <label class="btn btn-sm bg-primary text-white border-0 modal-button mb-5" for="image-modal">Ubah Foto</label>
+                                    <label class="btn btn-sm bg-primary text-white border-0 modal-button mb-5" for="avatar-modal">Ubah Foto</label>
                                 </div>
                             </div>
                         </div>
@@ -264,44 +264,69 @@
     </div>
 </div>
 
-<input type="checkbox" id="image-modal" class="modal-toggle" />
+<input type="checkbox" id="avatar-modal" class="modal-toggle" />
 <div class="modal modal-bottom sm:modal-middle">
     <div class="modal-box">
-        <label for="image-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+        <label for="avatar-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
         <h2 class="font-bold text-lg">Ubah Foto Penanggung Jawab</h2>
         <p class="py-4">Pastikan foto/gambar terlihat jelas dan tidak melebihi batan ukuran 2 MB.</p>
-        <form action="/changeimage" method="POST" enctype="multipart/form-data">
-            @method('PUT')
-            @csrf
-            <div class="flex flex-row justify-between gap-2">
-                <div class="flex w-1/2">
-                    <figure class="p-3">
-                        @if(!empty($account[0]->image) && !($account[0]->image == 'default.png'))
-                        <img src="{{ asset('storage/' . $account[0]->image) }}" id="img-preview" class="img-preview rounded-box" alt="{{ auth()->user()->name }}" />
-                        @else
-                        <img src="/img/default.png" id="img-preview" class="img-preview rounded-box" alt="Current profile photo">
-                        @endif
-                    </figure>
-                </div>
-                <div class="flex justify-center pt-3">
-                    <span class="sr-only">Choose profile photo</span>
-                    <input type="hidden" name="oldImage" value="{{ $account[0]->image }}">
-                    <input type="file" id="image" name="image" class="image block w-full text-sm text-slate-500 file:rounded-xl file:text-sm file:py-2 file:px-4 file:border-0 file:bg-slate-300 hover:file:bg-slate-400" onchange="previewImage()"/>
-                    @error('image')
-                    <label class="label">
-                        <span class="label-text-alt text-red-600">{{ $message }}</span>
-                    </label>
-                    @enderror
-                </div>
+        <div class="flex flex-col justify-between gap-3">
+            {{-- <div class="flex w-1/2">
+                <figure class="p-3">
+                    @if(!empty($account[0]->image) && !($account[0]->image == 'default.webp'))
+                    <img src="{{ asset('storage/' . $account[0]->image) }}" id="img-preview" class="img-preview rounded-box" alt="{{ auth()->user()->name }}" />
+                    @else
+                    <img src="/img/default.webp" id="img-preview" class="img-preview rounded-box" alt="Current profile photo">
+                    @endif
+                </figure>
+            </div> --}}
+            <div class="flex">
+                <div id="avatar_upload" class="avatar_upload rounded-box"></div>
+            </div>
+            <div class="flex justify-center pt-3">
+                <span class="sr-only">Pilih Foto</span>
+                <input type="hidden" name="oldImage" value="{{ $account[0]->image }}">
+                <input type="file" id="avatar_input" name="avatar_input" class="avatar_input block w-full text-sm text-slate-500 file:rounded-xl file:text-sm file:py-2 file:px-4 file:border-0 file:bg-slate-300 hover:file:bg-slate-400"/>
+                @error('avatar_input')
+                <label class="label">
+                    <span class="label-text-alt text-red-600">{{ $message }}</span>
+                </label>
+                @enderror
             </div>
             <div class="modal-action">
-                <button for="image-modal" class="btn btn-primary text-white">Unggah</button>
+                <button class="btn btn-primary crop_avatar text-white">Crop dan Unggah</button>
             </div>
-        </form>
+        </div>
     </div>
 </div>
 
-<input type="checkbox" id="photos-modal" class="modal-toggle" />
+<input type="checkbox" id="odd-modal" class="modal-toggle" />
+<div class="modal modal-bottom sm:modal-middle">
+    <div class="modal-box">
+        <label for="odd-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+        <h2 class="font-bold text-lg">Ubah Foto Orang Dengan Demensia</h2>
+        <p class="py-4">Pastikan foto/gambar terlihat jelas dan tidak melebihi batas ukuran 2 MB.</p>
+        <div class="flex flex-col justify-between gap-2">
+            <div class="flex">
+                <div id="odd_upload" class="odd_upload rounded-box"></div>
+            </div>
+            <div class="flex justify-center pt-3">
+                <span class="sr-only">Pilih Foto</span>
+                <input type="file" id="odd_input" name="odd_input" class="odd_input block w-full text-sm text-slate-500 file:rounded-xl file:text-sm file:py-2 file:px-4 file:border-0 file:bg-slate-300 hover:file:bg-slate-400"/>
+                @error('odd_input')
+                <label class="label">
+                    <span class="label-text-alt text-red-600">{{ $message }}</span>
+                </label>
+                @enderror
+            </div>
+        </div>
+        <div class="modal-action">
+            <button class="btn btn-primary crop_odd text-white">Unggah</button>
+        </div>
+    </div>
+</div>
+
+{{-- <input type="checkbox" id="photos-modal" class="modal-toggle" />
 <div class="modal modal-bottom sm:modal-middle">
     <div class="modal-box">
         <label for="photos-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
@@ -330,6 +355,6 @@
             </div>
         </form>
     </div>
-</div>
+</div> --}}
 
 @endsection

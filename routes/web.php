@@ -55,9 +55,11 @@ Route::get('/tracking', [LocationController::class, 'index'])->middleware('auth'
 Route::get('/password', [DashboardController::class, 'edit_password'])->middleware('auth');
 Route::get('/password/{user}', [DashboardController::class, 'reset_password'])->middleware('admin');
 Route::post('/password', [DashboardController::class, 'ubah_password']);
-Route::post('/addphotos', [DashboardController::class, 'add_photos']);
+Route::post('/dashboard/image-avatar', [DashboardController::class, 'change_avatar']);
+Route::post('/dashboard/image-odd', [DashboardController::class, 'add_odd']);
 Route::delete('/photos/{image}/delete', [DashboardController::class, 'delete_photos']);
-Route::put('/changeimage', [DashboardController::class, 'change_image']);
+// Route::post('/addphotos', [DashboardController::class, 'add_photos']);
+// Route::put('/changeimage', [DashboardController::class, 'change_image']);
 
 Route::get('/users', [DashboardController::class, 'users'])->middleware('admin');
 Route::get('/activate/{user}', [DashboardController::class, 'activate'])->middleware('admin');
