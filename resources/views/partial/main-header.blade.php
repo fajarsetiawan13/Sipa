@@ -25,7 +25,7 @@
 				</ul>
             </div>
             <div class="navbar-end">
-              	<label class="btn btn-md text-md text-white bg-primary border-0 modal-button mr-3 px-5" for="login-modal">Masuk</label>
+              	<label class="btn btn-sm text-sm lg:btn-md lg:text-md text-white bg-primary border-0 modal-button mr-3 px-5" for="login-modal">Masuk</label>
             </div>
         </div>
     </div>

@@ -8,12 +8,10 @@
             
             @include('partial.dashboard-sidebar')
 
-            <div class="flex-grow card rounded-box m-2 lg:w-3/4">
-                <div class="card w-full bg-slate-50 shadow-lg">
-                    <div class="card-body">
-                        <h2 class="card-title justify-between"><span>{{ $title }}</span></h2>
-                        <div class="divider my-0"></div>
-                    </div>
+            <div class="flex-grow card bg-slate-50 shadow-lg rounded-box m-2 lg:w-3/4">
+                <div class="card-body">
+                    <h2 class="card-title justify-between"><span>{{ $title }}</span></h2>
+                    <div class="divider my-0"></div>
                 </div>
             </div>
         </div>

@@ -38,7 +38,7 @@
         </figure>
         <p class="mx-auto text-center">{{ session('error') }}</p>
         <div class="modal-action justify-center">
-            <label for="error-modal" class="btn btn-primary btn-md text-md text-white">Oke!</label>
+            <label for="error-modal" class="btn btn-primary btn-xs text-xs lg:btn-sm lg:text-sm text-white">Oke!</label>
         </div>
     </div>
 </div>
@@ -46,188 +46,186 @@
 
 <section id="dashboard" class="py-16 min-h-screen bg-gradient-to-r from-slate-500 to-slate-800">
     <div class="container p-4 mx-auto">
-        <div class="flex flex-col-reverse w-full lg:flex-row">
+        <div class="flex flex-col-reverse lg:flex-row">
             
             @include('partial.dashboard-sidebar')
 
-            <div class="flex-grow card rounded-box m-2 lg:w-3/4">
-                <div class="card w-full bg-slate-50 shadow-lg">
-                    <div class="card-body overflow-x-auto">
-                        <h2 class="card-title justify-between"><span>{{ $title }}</span></h2>
-                        <div class="divider my-0"></div>
-                        <div class="flex flex-col-reverse lg:flex-row gap-2">
-                            <div class="flex flex-col w-full gap-2 lg:w-3/4 lg:mb-0">
-                                <table class="table table-compact w-full">
-                                    <thead>
-                                        <tr>
-                                            <th colspan="3">Informasi Penanggung Jawab</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="hover">
-                                            <td class="w-2/12 bg-slate-50">Nama</td>
-                                            <td class="w-1/12 bg-slate-50">:</td>
-                                            <td class="w-9/12 bg-slate-50">{{ auth()->user()->name }}</td>
-                                        </tr>
-                                        <tr class="hover">
-                                            <td class="w-2/12 bg-slate-50">Jenis Kelamin</td>
-                                            <td class="w-1/12 bg-slate-50">:</td>
-                                            <td class="w-9/12 bg-slate-50 whitespace-pre-line">{{ $account[0]->gender }}</td>
-                                        </tr>
-                                        <tr class="hover">
-                                            <td class="w-2/12 bg-slate-50">Alamat</td>
-                                            <td class="w-1/12 bg-slate-50">:</td>
-                                            <td class="w-9/12 bg-slate-50 whitespace-pre-line">{{ $account[0]->address }}</td>
-                                        </tr>
-                                        <tr class="hover">
-                                            <td class="w-2/12 bg-slate-50">Nomor HP/Telepon</td>
-                                            <td class="w-1/12 bg-slate-50">:</td>
-                                            <td class="w-9/12 bg-slate-50 whitespace-pre-line">{{ $account[0]->phone }}</td>
-                                        </tr>
-                                        <tr class="hover">
-                                            <td class="w-2/12 bg-slate-50">Email</td>
-                                            <td class="w-1/12 bg-slate-50">:</td>
-                                            <td class="w-9/12 bg-slate-50 whitespace-pre-line">{{ $account[0]->email }}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <table class="table table-compact w-full">
-                                    <thead>
-                                        <tr>
-                                            <th colspan="3">Informasi Orang Dengan Demensia (ODD)</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="hover">
-                                            <td class="w-2/12 bg-slate-50">Nama</td>
-                                            <td class="w-1/12 bg-slate-50">:</td>
-                                            <td class="w-9/12 bg-slate-50">{{ $account[0]->odd_name }}</td>
-                                        </tr>
-                                        <tr class="hover">
-                                            <td class="w-2/12 bg-slate-50">Jenis Kelamin</td>
-                                            <td class="w-1/12 bg-slate-50">:</td>
-                                            <td class="w-9/12 bg-slate-50 whitespace-pre-line">{{ $account[0]->odd_gender }}</td>
-                                        </tr>
-                                        <tr class="hover">
-                                            <td class="w-2/12 bg-slate-50">Umur</td>
-                                            <td class="w-1/12 bg-slate-50">:</td>
-                                            <td class="w-9/12 bg-slate-50 whitespace-pre-line">{{ $account[0]->odd_age }}</td>
-                                        </tr>
-                                        <tr class="hover">
-                                            <td class="w-2/12 bg-slate-50">Tahap Alzheimer</td>
-                                            <td class="w-1/12 bg-slate-50">:</td>
-                                            <td class="w-9/12 bg-slate-50 whitespace-pre-line">{{ $account[0]->odd_stage }}</td>
-                                        </tr>
-                                        <tr class="hover">
-                                            <td class="w-2/12 bg-slate-50">Deskripsi Fisik</td>
-                                            <td class="w-1/12 bg-slate-50">:</td>
-                                            <td class="w-9/12 bg-slate-50 whitespace-pre-line">{{ $account[0]->odd_description }}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <table class="table table-compact w-full">
-                                    <thead>
-                                        <tr>
-                                            <th colspan="3">Kontak Keluarga</th>
-                                            <th colspan="1" class="flex justify-end"><label class="btn btn-sm bg-primary border-0 modal-button" for="contact-modal">Tambah Kontak</label></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @if($contact->count())
-                                        @foreach($contact as $c)
-                                        <tr class="hover">
-                                            <td class="w-1/12 bg-slate-50">{{ $loop->iteration }}</td>
-                                            <td class="w-3/12 bg-slate-50 whitespace-pre-line">{{ $c->family_name }}</td>
-                                            <td class="w-3/12 bg-slate-50 whitespace-pre-line">{{ $c->phone_number }}</td>
-                                            <td class="w-5/12 bg-slate-50">
-                                                <label class="btn btn-sm btn-info rounded-full tooltip inline-flex modal-button" for="edit-contact-{{ $c->id }}" data-tip="edit"><i class='bx bxs-edit text-lg text-white'></i></label>
-                                                <form action="/dashboard/contact/{{ $c->id }}" method="POST" class="inline-flex">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <button class="btn btn-sm btn-error rounded-full tooltip inline-flex" type="submit" data-tip="delete" onclick="return confirm('Are you sure?')"><i class='bx bx-trash text-lg text-white'></i></button>
-                                                </form>
-                                                {{-- Modal for Edit Contact --}}
-                                                <input type="checkbox" id="edit-contact-{{ $c->id }}" class="modal-toggle" />
-                                                <div class="modal modal-bottom sm:modal-middle">
-                                                    <div class="modal-box">
-                                                        <label for="edit-contact-{{ $c->id }}" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                                                        <h2 class="font-bold text-lg">Ubah Kontak : {{ $c->family_name }}</h2>
-                                                        <p class="py-4">Pastikan kontak dapat dihubungi setiap saat!</p>
-                                                        <form action="/dashboard/contact/{{ $c->id }}" method="POST">
-                                                            @csrf
-                                                            @method('PUT')
-                                                            <div class="form-control">
-                                                                <label class="label">
-                                                                    <span class="label-text">Nama</span>
-                                                                </label>
-                                                                <input type="text" placeholder="Nama Kontak" id="family_name" name="family_name" value="{{ $c->family_name }}" class="input input-bordered" autofocus required/>
-                                                            </div>
-                                                            <div class="form-control">
-                                                                <label class="label">
-                                                                    <span class="label-text">Nomor Telepon/HP/Whatsapp yang aktif</span>
-                                                                </label>
-                                                                <input type="text" placeholder="Nomor Kontak" id="phone_number" name="phone_number" value="{{ $c->phone_number }}" class="input input-bordered" required/>
-                                                            </div>
-                                                            <div class="modal-action">
-                                                                <button for="edit-contact-{{ $c->id }}" class="btn btn-primary text-white">Ubah</button>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>                                
-                                            </td>
-                                        </tr>
-                                        @endforeach
-                                        @else
-                                        <tr class="hover">
-                                            <td colspan="4" class="bg-slate-50">- Data Tidak Ditemukan -</td>
-                                        </tr>
-                                        @endif
-                                    </tbody>
-                                </table>
-                                <table class="table table-compact w-full">
-                                    <thead>
-                                        <tr>
-                                            <th colspan="3">Foto ODD <span class="normal-case text-slate-500">(Maks. 5 Foto)</span></th>
-                                            @if($photos->count() < 5)
-                                            <th colspan="1" class="flex justify-end"><label class="btn btn-sm bg-primary border-0 modal-button" for="odd-modal">Tambah Foto</label></th>
-                                            @else
-                                            <th colspan="1" class="flex justify-end"><label class="btn btn-sm bg-primary border-0" disabled>Tambah Foto</label></th>
-                                            @endif
-                                        </tr>
-                                    </thead>
-                                </table>
-                                <div class="flex flex-wrap w-full justify-start">
-                                    @if($photos->count())
-                                    @foreach($photos as $p)
-                                    <div class="avatar indicator m-2">
-                                        <form action="/photos/{{ $p->id }}/delete" method="POST" class="mt-2 mr-2">
-                                            @method('DELETE')
-                                            @csrf
-                                            <button type="submit" class="indicator-item badge badge-error" onclick="return confirm('Apa Anda Yakin?')">hapus</button>
-                                        </form>
-                                        <div class="w-24 mask mask-squircle">
-                                            <img src="{{ asset('storage/'. $p->image) }}" alt="Foto ODD"/>
-                                        </div>
-                                    </div>
+            <div class="card bg-slate-50 shadow-lg rounded-box m-2 lg:w-3/4">
+                <div class="card-body overflow-x-auto">
+                    <h2 class="card-title justify-between"><span>{{ $title }}</span></h2>
+                    <div class="divider my-0"></div>
+                    <div class="flex flex-col-reverse lg:flex-row gap-2">
+                        <div class="flex flex-col w-full gap-2 lg:w-3/4 lg:mb-0">
+                            <table class="table table-compact w-full">
+                                <thead>
+                                    <tr>
+                                        <th colspan="3" class="text-xs lg:text-sm">Penanggung Jawab</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="hover">
+                                        <td class="w-2/12 bg-slate-50 text-xs lg:text-sm">Nama</td>
+                                        <td class="w-1/12 bg-slate-50 text-xs lg:text-sm">:</td>
+                                        <td class="w-9/12 bg-slate-50 text-xs lg:text-sm">{{ auth()->user()->name }}</td>
+                                    </tr>
+                                    <tr class="hover">
+                                        <td class="w-2/12 bg-slate-50 text-xs lg:text-sm">Jenis Kelamin</td>
+                                        <td class="w-1/12 bg-slate-50 text-xs lg:text-sm">:</td>
+                                        <td class="w-9/12 bg-slate-50 text-xs lg:text-sm whitespace-pre-line">{{ $account[0]->gender }}</td>
+                                    </tr>
+                                    <tr class="hover">
+                                        <td class="w-2/12 bg-slate-50 text-xs lg:text-sm">Alamat</td>
+                                        <td class="w-1/12 bg-slate-50 text-xs lg:text-sm">:</td>
+                                        <td class="w-9/12 bg-slate-50 text-xs lg:text-sm whitespace-pre-line">{{ $account[0]->address }}</td>
+                                    </tr>
+                                    <tr class="hover">
+                                        <td class="w-2/12 bg-slate-50 text-xs lg:text-sm">Nomor HP/Telepon</td>
+                                        <td class="w-1/12 bg-slate-50 text-xs lg:text-sm">:</td>
+                                        <td class="w-9/12 bg-slate-50 text-xs lg:text-sm whitespace-pre-line">{{ $account[0]->phone }}</td>
+                                    </tr>
+                                    <tr class="hover">
+                                        <td class="w-2/12 bg-slate-50 text-xs lg:text-sm">Email</td>
+                                        <td class="w-1/12 bg-slate-50 text-xs lg:text-sm">:</td>
+                                        <td class="w-9/12 bg-slate-50 text-xs lg:text-sm whitespace-pre-line">{{ $account[0]->email }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table class="table table-compact w-full">
+                                <thead>
+                                    <tr>
+                                        <th colspan="3" class="text-xs lg:text-sm">Orang Dengan Demensia (ODD)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="hover">
+                                        <td class="w-2/12 bg-slate-50 text-xs lg:text-sm">Nama</td>
+                                        <td class="w-1/12 bg-slate-50 text-xs lg:text-sm">:</td>
+                                        <td class="w-9/12 bg-slate-50 text-xs lg:text-sm">{{ $account[0]->odd_name }}</td>
+                                    </tr>
+                                    <tr class="hover">
+                                        <td class="w-2/12 bg-slate-50 text-xs lg:text-sm">Jenis Kelamin</td>
+                                        <td class="w-1/12 bg-slate-50 text-xs lg:text-sm">:</td>
+                                        <td class="w-9/12 bg-slate-50 text-xs lg:text-sm whitespace-pre-line">{{ $account[0]->odd_gender }}</td>
+                                    </tr>
+                                    <tr class="hover">
+                                        <td class="w-2/12 bg-slate-50 text-xs lg:text-sm">Umur</td>
+                                        <td class="w-1/12 bg-slate-50 text-xs lg:text-sm">:</td>
+                                        <td class="w-9/12 bg-slate-50 text-xs lg:text-sm whitespace-pre-line">{{ $account[0]->odd_age }}</td>
+                                    </tr>
+                                    <tr class="hover">
+                                        <td class="w-2/12 bg-slate-50 text-xs lg:text-sm">Tahap Alzheimer</td>
+                                        <td class="w-1/12 bg-slate-50 text-xs lg:text-sm">:</td>
+                                        <td class="w-9/12 bg-slate-50 text-xs lg:text-sm whitespace-pre-line">{{ $account[0]->odd_stage }}</td>
+                                    </tr>
+                                    <tr class="hover">
+                                        <td class="w-2/12 bg-slate-50 text-xs lg:text-sm">Deskripsi Fisik</td>
+                                        <td class="w-1/12 bg-slate-50 text-xs lg:text-sm">:</td>
+                                        <td class="w-9/12 bg-slate-50 text-xs lg:text-sm whitespace-pre-line">{{ $account[0]->odd_description }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table class="table table-compact w-full">
+                                <thead>
+                                    <tr>
+                                        <th colspan="3" class="text-xs lg:text-sm">Kontak Keluarga</th>
+                                        <th colspan="1" class="flex justify-end"><label class="btn btn-xs text-xs lg:btn-sm lg:text-sm bg-primary border-0 modal-button" for="contact-modal">Tambah</label></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if($contact->count())
+                                    @foreach($contact as $c)
+                                    <tr class="hover">
+                                        <td class="w-1/12 bg-slate-50 text-xs lg:text-sm">{{ $loop->iteration }}</td>
+                                        <td class="w-3/12 bg-slate-50 text-xs lg:text-sm whitespace-pre-line">{{ $c->family_name }}</td>
+                                        <td class="w-3/12 bg-slate-50 text-xs lg:text-sm whitespace-pre-line">{{ $c->phone_number }}</td>
+                                        <td class="w-5/12 bg-slate-50 text-xs lg:text-sm">
+                                            <label class="btn btn-xs text-xs lg:btn-sm lg:text-sm btn-info rounded-full tooltip inline-flex modal-button" for="edit-contact-{{ $c->id }}" data-tip="edit"><i class='bx bxs-edit text-sm text-white'></i></label>
+                                            <form action="/dashboard/contact/{{ $c->id }}" method="POST" class="inline-flex">
+                                                @csrf
+                                                @method('delete')
+                                                <button class="btn btn-xs text-xs lg:btn-sm lg:text-sm btn-error rounded-full tooltip inline-flex" type="submit" data-tip="delete" onclick="return confirm('Are you sure?')"><i class='bx bx-trash text-sm text-white'></i></button>
+                                            </form>
+                                            {{-- Modal for Edit Contact --}}
+                                            <input type="checkbox" id="edit-contact-{{ $c->id }}" class="modal-toggle" />
+                                            <div class="modal modal-bottom sm:modal-middle">
+                                                <div class="modal-box">
+                                                    <label for="edit-contact-{{ $c->id }}" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                                                    <h2 class="font-bold text-lg">Ubah Kontak : {{ $c->family_name }}</h2>
+                                                    <p class="py-4">Pastikan kontak dapat dihubungi setiap saat!</p>
+                                                    <form action="/dashboard/contact/{{ $c->id }}" method="POST">
+                                                        @csrf
+                                                        @method('PUT')
+                                                        <div class="form-control">
+                                                            <label class="label">
+                                                                <span class="label-text">Nama</span>
+                                                            </label>
+                                                            <input type="text" placeholder="Nama Kontak" id="family_name" name="family_name" value="{{ $c->family_name }}" class="input input-bordered" autofocus required/>
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <label class="label">
+                                                                <span class="label-text">Nomor Telepon/HP/Whatsapp yang aktif</span>
+                                                            </label>
+                                                            <input type="text" placeholder="Nomor Kontak" id="phone_number" name="phone_number" value="{{ $c->phone_number }}" class="input input-bordered" required/>
+                                                        </div>
+                                                        <div class="modal-action">
+                                                            <button for="edit-contact-{{ $c->id }}" class="btn btn-primary text-white">Ubah</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>                                
+                                        </td>
+                                    </tr>
                                     @endforeach
                                     @else
-                                        <p class="text-sm pl-2 bg-slate-50">- Data Tidak Ditemukan -</p>
+                                    <tr class="hover">
+                                        <td colspan="4" class="bg-slate-50 text-xs lg:text-sm">- Data Tidak Ditemukan -</td>
+                                    </tr>
                                     @endif
-                                </div>
-                            </div>
-                            <div class="flex flex-col w-full gap-2 lg:w-1/4 lg:px-3">
-                                <div class="flex justify-center">
-                                    <figure class="p-3">
-                                        @if(!empty($account[0]->image) && !($account[0]->image == 'default.webp'))
-                                        <img src="{{ asset('storage/' . $account[0]->image) }}" class="rounded-box" alt="{{ auth()->user()->name }}" />
+                                </tbody>
+                            </table>
+                            <table class="table table-compact w-full">
+                                <thead>
+                                    <tr>
+                                        <th colspan="3" class="text-xs lg:text-sm">Foto ODD <span class="normal-case text-xs lg:text-sm text-slate-500">(Maks. 5 Foto)</span></th>
+                                        @if($photos->count() < 5)
+                                        <th colspan="1" class="flex justify-end"><label class="btn btn-xs lg:btn-sm text-xs lg:text-sm bg-primary border-0 modal-button" for="odd-modal">Tambah</label></th>
                                         @else
-                                        <img src="/img/default.webp" class="rounded-box" alt="Current profile photo">
+                                        <th colspan="1" class="flex justify-end"><label class="btn btn-xs lg:btn-sm text-xs lg:text-sm bg-primary border-0" disabled>Tambah</label></th>
                                         @endif
-                                    </figure>
+                                    </tr>
+                                </thead>
+                            </table>
+                            <div class="flex flex-wrap w-full justify-start">
+                                @if($photos->count())
+                                @foreach($photos as $p)
+                                <div class="avatar indicator m-2">
+                                    <form action="/photos/{{ $p->id }}/delete" method="POST" class="mt-2 mr-2">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit" class="indicator-item badge badge-error" onclick="return confirm('Apa Anda Yakin?')">hapus</button>
+                                    </form>
+                                    <div class="w-24 mask mask-squircle">
+                                        <img src="{{ asset('storage/'. $p->image) }}" alt="Foto ODD"/>
+                                    </div>
                                 </div>
-                                <div class="flex justify-center items-center">
-                                    <label class="btn btn-sm bg-primary text-white border-0 modal-button mb-5" for="avatar-modal">Ubah Foto</label>
-                                </div>
+                                @endforeach
+                                @else
+                                    <p class="pl-2 bg-slate-50 text-xs lg:text-sm">- Data Tidak Ditemukan -</p>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="flex flex-col w-full gap-2 lg:w-1/4 lg:px-3">
+                            <div class="flex justify-center">
+                                <figure class="p-3">
+                                    @if(!empty($account[0]->image) && !($account[0]->image == 'default.webp'))
+                                    <img src="{{ asset('storage/' . $account[0]->image) }}" class="rounded-box" alt="{{ auth()->user()->name }}" />
+                                    @else
+                                    <img src="/img/default.webp" class="rounded-box" alt="Current profile photo">
+                                    @endif
+                                </figure>
+                            </div>
+                            <div class="flex justify-center items-center">
+                                <label class="btn btn-xs text-xs lg:btn-sm lg:text-sm bg-primary text-white border-0 modal-button mb-5" for="avatar-modal">Ubah Foto</label>
                             </div>
                         </div>
                     </div>

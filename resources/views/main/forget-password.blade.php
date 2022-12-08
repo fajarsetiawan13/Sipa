@@ -6,8 +6,8 @@
     <div class="container py-16 px-4 mx-auto">
         <div class="w-full">
             <div class="max-w-xl mx-auto text-center">                
-                <h4 class="font-semibold uppercase text-primary text-lg mb-3">Password</h4>
-                <h2 class="font-bold text-slate-50  text-3xl mb-4 lg:text-5xl">Lupa Password!</h2>
+                <h4 class="font-semibold uppercase text-primary text-sm lg:text-lg">Password</h4>
+                <h2 class="font-bold text-slate-50 text-2xl mb-3 lg:text-3xl">Lupa Password!</h2>
                 <p class="font-medium text-md text-slate-50  md:text-lg mb-4">Masukkan nama, email dan nomor hp/telepon/whatsapp yang terdaftar!</p>
             </div>
         </div>
@@ -22,9 +22,9 @@
                     <div class="flex flex-col">
                         <div class="form-control w-full mb-2">
                             <label class="label">
-                                <span class="label-text">Nama Akun Penanggung Jawab</span>
+                                <span class="label-text">Nama Penanggung Jawab</span>
                             </label>
-                            <input type="text" placeholder="..." id="name" name="name" class="input input-bordered" required/>
+                            <input type="text" placeholder="Nama Lengkap" id="name" name="name" class="input input-bordered" required/>
                             @error('name')
                             <label class="label">
                                 <span class="label-text-alt text-red-600">{{ $message }}</span>
@@ -35,7 +35,7 @@
                             <label class="label">
                                 <span class="label-text">Email atau Nomor Terdaftar</span>
                             </label>
-                            <input type="text" placeholder="..." id="email" name="email" class="input input-bordered"/>
+                            <input type="text" placeholder="Emailkamu@mail.com atau 082123456789" id="email" name="email" class="input input-bordered"/>
                             @error('email')
                             <label class="label">
                                 <span class="label-text-alt text-red-600">{{ $message }}</span>
@@ -44,7 +44,7 @@
                         </div>
                     </div>
                     <div class="form-control items-center mt-5">
-                        <button class="btn btn-md text-md btn-primary w-1/2 text-white">Kirim</button>
+                        <button class="btn btn-md text-md btn-primary w-1/3 text-white">Kirim</button>
                     </div>
                 </form>
                 @endif

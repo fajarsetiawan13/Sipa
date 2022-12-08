@@ -22,7 +22,7 @@
 <div class="modal modal-bottom sm:modal-middle">
     <div class="modal-box">
         <label for="login-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-        <h2 class="font-bold text-lg">Silahkan Login</h2>
+        <h2 class="font-bold text-lg">Login Akun Anda!</h2>
         <p class="py-4">Belum punya akun? <a href="/register" class="text-blue-500 link link-hover">daftar disini!</a></p>
         <form action="/login" method="POST">
             @csrf
@@ -47,7 +47,7 @@
                 </label>
             </div>
             <div class="modal-action">
-                <button for="login-modal" class="btn btn-sm text-sm text-white btn-primary">Masuk</button>
+                <button for="login-modal" class="btn btn-sm text-sm lg:btn-md lg:text-md text-white btn-primary">Masuk</button>
             </div>
         </form>
     </div>

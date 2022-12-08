@@ -6,8 +6,8 @@
     <div class="container py-16 px-4 mx-auto">
         <div class="w-full">
             <div class="max-w-xl mx-auto text-center">    
-                <h4 class="font-semibold uppercase text-primary text-lg mb-3">Tentang</h4>
-                <h2 class="font-bold text-slate-50 text-3xl mb-4 lg:text-5xl">{{ $title }}</h2>
+                <h4 class="font-semibold uppercase text-primary text-sm lg:text-lg">Tentang</h4>
+                <h2 class="font-bold text-slate-50 text-2xl mb-3 lg:text-3xl">{{ $title }}</h2>
                 {{-- <p class="font-medium text-md text-slate-800 md:text-lg mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores nesciunt debitis harum? Delectus possimus a maiores quia accusamus?</p> --}}
             </div>
         </div>

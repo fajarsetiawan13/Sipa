@@ -9,7 +9,7 @@
                 <div class="card-body">
                     <div class="w-full">
                         <div class="max-w-xl mx-auto text-center mb-1">                
-                            <h4 class="font-semibold uppercase text-primary text-lg mb-3">Artikel</h4>
+                            <h4 class="font-semibold uppercase text-primary text-sm lg:text-lg">Artikel</h4>
                             <h1 class="font-bold text-dark text-xl mb-1 lg:text-3xl">{{ $post->title }}</h1>
                             <small class="flex justify-center">ditulis oleh {{ $post->user->name }}, pada {{ $post->created_at->format('d-m-Y') }}</small>
                         </div>

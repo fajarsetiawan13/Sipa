@@ -2,7 +2,6 @@
 
 @section('section')
 
-
 @if(session()->has('success'))
 <script type="text/javascript">
     $(window).on('load', function(){
@@ -49,8 +48,8 @@
     <div class="container py-16 px-4 mx-auto">
         <div class="w-full">
             <div class="max-w-xl mx-auto text-center">
-                <h4 class="font-semibold uppercase text-primary text-lg mb-3">Bertemu</h4>
-                <h2 class="font-bold text-dark text-3xl mb-4 lg:text-5xl">Tolong hubungi kontak keluarga yang tersedia dibawah!</h2>
+                <h4 class="font-semibold uppercase text-primary text-sm lg:text-lg">Bertemu</h4>
+                <h2 class="font-bold text-dark text-2xl mb-3 lg:text-3xl">Tolong hubungi kontak keluarga yang tersedia dibawah!</h2>
             </div>
         </div>
         <div class="flex justify-center">

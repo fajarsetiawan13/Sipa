@@ -6,8 +6,8 @@
     <div class="container py-16 px-4 mx-auto">
         <div class="w-full">
             <div class="max-w-xl mx-auto text-center">                
-                <h4 class="font-semibold uppercase text-primary text-lg mb-3">Artikel</h4>
-                <h2 class="font-bold text-slate-50 text-3xl mb-4 lg:text-5xl">{{ $title }}</h2>
+                <h4 class="font-semibold uppercase text-primary text-sm lg:text-lg">Artikel</h4>
+                <h2 class="font-bold text-slate-50 text-2xl mb-3 lg:text-3xl">{{ $title }}</h2>
             </div>
         </div>
         <div class="flex flex-wrap">

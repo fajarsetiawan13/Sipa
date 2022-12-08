@@ -6,8 +6,8 @@
     <div class="container py-16 px-4 mx-auto">
         <div class="w-full">
             <div class="max-w-xl mx-auto text-center">
-                <h4 class="font-semibold uppercase text-primary text-lg mb-3">Pendaftaran</h4>
-                <h2 class="font-bold text-dark text-3xl mb-4 lg:text-5xl">Daftar Sekarang!</h2>
+                <h4 class="font-semibold uppercase text-primary text-sm lg:text-lg">Pendaftaran</h4>
+                <h2 class="font-bold text-dark text-2xl mb-3 lg:text-3xl">Daftar Sekarang!</h2>
                 <p class="font-medium text-md text-slate-800 md:text-lg mb-4">Masukkan data sebenar-benarnya, email dan nomor aktif (disarankan nomor whatsapp aktif) agar mudah dan cepat dalam proses verifikasi.</p>
             </div>
         </div>
@@ -178,7 +178,7 @@
                             @enderror
                         </div>
                         <div class="form-control items-center mt-5">
-                            <button class="btn btn-md btn-primary w-1/2 text-md text-white">Daftar</button>
+                            <button class="btn btn-sm text-sm lg:btn-md lg:text-md btn-primary w-1/3 text-white">Daftar</button>
                         </div>
                     </form>
                 </div>

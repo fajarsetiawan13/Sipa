@@ -9,10 +9,12 @@
      
 	<link rel="icon" type="image/x-icon" href="{{ asset('/img/favicon.webp') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/app.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('/css/trix.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('/css/croppie.css') }}">
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css">
+    <link rel="stylesheet" type="text/css" href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css'>
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+	@if(Request::is('manage/posts*')) 
+		<link rel="stylesheet" type="text/css" href="{{ asset('/css/trix.min.css') }}">
+	@endif
 	
 	<style type="text/css">
         img {
