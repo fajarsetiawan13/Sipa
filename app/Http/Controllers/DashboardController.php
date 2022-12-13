@@ -194,7 +194,7 @@ class DashboardController extends Controller
         return view('dashboard.messages', [
             'title' => 'Pesan',
             'account' => User::where('id', auth()->user()->id)->get(),
-            'messages' => Messages::latest()->get()
+            'messages' => Messages::latest()->paginate(6)
         ]);
     }
 

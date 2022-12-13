@@ -53,9 +53,9 @@
                     <label tabindex="0" class="btn btn-ghost btn-circle avatar">
                         <div class="w-10 rounded-full">
                             @if(!empty($account[0]->image) && !($account[0]->image == 'default.webp'))
-                            <img src="{{ asset('storage/' . $account[0]->image) }}" class="rounded-box" alt="{{ auth()->user()->name }}" />
+                            <img src="{{ asset('storage/' . $account[0]->image) }}" class="rounded-box" alt="{{ auth()->user()->name }}" width="40" height="40">
                             @else
-                            <img src="/img/default.webp" class="rounded-box" alt="Current profile photo">
+                            <img src="/img/default.webp" class="rounded-box" alt="Current profile photo" width="40" height="40">
                             @endif
                         </div>
                     </label>

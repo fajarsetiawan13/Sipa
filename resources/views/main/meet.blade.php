@@ -58,34 +58,29 @@
                     <h2 class="card-title">{{ $information->user->odd_name }}</h2>
                     <p>{{ $information->user->odd_description }}</p>
                     <p>{{ $information->user->address }}</p>
-                    <div class="carousel carousel-center w-full mt-4 px-2 gap-4">
-                        @for($x = 0; $x < ($information->user->images->count()); $x++)
-                        <div id="item{{ $x }}" class="carousel-item">
-                          <img src="{{ asset('storage') . '/' . $information->user->images[$x]['image'] }}" class="rounded-xl w-[250px]" />
-                        </div> 
-                        @endfor
+                    <div class="flex flex-wrap justify-center">
+                        @foreach($information->user->images as $usr)
+                            <img src="{{ asset('storage') . '/' . $usr->image }}" width="200" height="200" class="rounded-box p-1" />
+                        @endforeach
                     </div>
-                    <div class="flex justify-center w-full py-2 gap-2">
-                        <?php $y = 1;?>
-                        @for($x = 0; $x < ($information->user->images->count()); $x++)
-                        <a href="#item{{ $x }}" class="btn btn-sm">{{ $y }}</a>
-                        <?php $y++ ;?>
-                        @endfor
-                    </div>
+                    <span class="text-error font-bold">*Bagikian lokasi terkini atau "Share Location" melalui Whatsapp, supaya penanganan lebih cepat.</span>
+                    <h2 class="text-primary font-bold mt-3">Kontak Penanggung Jawab</h2>
                     <a href="{{ 'tel:' . $information->user->phone }}" target="_blank" class="btn btn-md btn-accent">Telepon Selular</a>
-                    <a href="{{ 'https://wa.me/' . $information->user->phone . '?text=Saya menemukan keluarga Anda!'}}" target="_blank" class="btn btn-md btn-secondary">Whatsapp (chat/telepon) <i class='bx bxl-whatsapp text-lg'></i></a>
+                    <a href="{{ 'https://wa.me/' . $information->user->phone . '?text=Saya menemukan keluarga Anda!'}}" target="_blank" class="btn btn-md btn-primary">Whatsapp (chat/telepon) <i class='bx bxl-whatsapp text-white text-2xl'></i></a>
+                    
                     @if(!empty($information->user->contact))
                     <h2 class="text-primary font-bold mt-3">Kontak Keluarga</h2>
                     @foreach($information->user->contact as $uc)
-                    <a href="{{ 'https://wa.me/' . $uc->phone_number . '?text=Saya menemukan keluarga Anda!'}}" target="_blank" class="btn btn-md btn-secondary">Whatsapp (chat/telepon) <i class='bx bxl-whatsapp text-lg'></i></a>
+                    <a href="{{ 'https://wa.me/' . $uc->phone_number . '?text=Saya menemukan keluarga Anda!'}}" target="_blank" class="btn btn-md btn-primary">Whatsapp (chat/telepon) <i class='bx bxl-whatsapp text-white text-2xl'></i></a>
                     @endforeach
                     @endif
+                    
                     <div class="card-actions">
                         <form action="/meet/{{ $information->user->id }}" method="POST">
                             @csrf
                             <input type="text" id="latitude" name="latitude" hidden>
                             <input type="text" id="longitude" name="longitude" hidden>
-                            <button type="submit" class="btn btn-md btn-primary text-white">Bagikan Lokasi Terkini</button>
+                            <button type="submit" class="btn btn-md btn-secondary">Bagikan Lokasi Terkini</button>
                         </form>
                     </div>
                 </div>

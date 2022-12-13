@@ -12,9 +12,7 @@
     </div>      
 </footer>
 <footer class="footer footer-center p-4 bg-slate-800 text-base-content">
-    <div>
-        <p class="text-white">Hak Cipta © 2022 - Sipa App</p>
-    </div>
+    <p class="text-white">Hak Cipta © 2022 - Sipa App</p>
 </footer>
 {{-- FOOTER END --}}
 

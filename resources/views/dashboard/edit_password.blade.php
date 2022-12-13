@@ -24,47 +24,35 @@
 @endif
 
 <section id="dashboard" class="py-16 min-h-screen bg-gradient-to-r from-slate-500 to-slate-800">
-    <div class="container p-4 mx-auto">
-        <div class="flex flex-col-reverse w-full lg:flex-row">
-            
-            @include('partial.dashboard-sidebar')
-
-            <div class="flex-grow card bg-slate-50 shadow-lg rounded-box m-2 lg:w-3/4">
-                <div class="card-body">
-                    <h2 class="card-title justify-between"><span>{{ $title }}</span></h2>
-                    <div class="divider my-0"></div>
-                    <form action="/password" method="POST">
-                        @csrf
-                        <div class="flex flex-col gap-2 lg:w-1/2">
-                            <div class="block w-full">
-                                <div class="form-control">
-                                    <label class="label">
-                                        <span class="label-text">Password Lama</span>
-                                    </label>
-                                    <input type="password" id="password" name="password" placeholder="password lama" class="input input-bordered @error('password') input-error @enderror" required/>
-                                    <i class="bx bx-lock-alt text-2xl self-end -mt-8 mr-2"  id="togglePassword" style="cursor: pointer;"></i>
-                                    @error('password')
-                                    <label class="label">
-                                        <span class="label-text-alt text-red-600">{{ $message }}</span>
-                                    </label>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="block w-full">
-                                <div class="form-control">
-                                    <label class="label">
-                                        <span class="label-text">Password Baru</span>
-                                    </label>
-                                    <input type="password" id="password_baru" name="password_baru" placeholder="password baru" class="input input-bordered" required/>
-                                    <i class='bx bx-lock-alt text-2xl self-end -mt-8 mr-2'  id="togglePasswordBaru" style="cursor: pointer;"></i>
-                                </div>
-                            </div>
+    <div class="container p-4 mx-auto flex flex-col-reverse w-full lg:flex-row">
+        @include('partial.dashboard-sidebar')
+        <div class="flex-grow card bg-slate-50 shadow-lg rounded-box m-2 lg:w-3/4">
+            <div class="card-body">
+                <h2 class="card-title justify-between">{{ $title }}</h2>
+                <div class="divider my-0"></div>
+                <form action="/password" method="POST">
+                    @csrf
+                    <div class="flex flex-col gap-2 lg:w-1/2">
+                        <div class="form-control">
+                            <label class="label label-text">Password Lama</label>
+                            <input type="password" id="password" name="password" placeholder="password lama" class="input input-bordered @error('password') input-error @enderror" required/>
+                            <i class="bx bx-lock-alt text-2xl self-end -mt-8 mr-2"  id="togglePassword" style="cursor: pointer;"></i>
+                            @error('password')
+                            <label class="label">
+                                <span class="label-text-alt text-red-600">{{ $message }}</span>
+                            </label>
+                            @enderror
                         </div>
-                        <div class="flex justify-end w-full pt-2 lg:w-1/2">
-                            <button type="submit" class="btn btn-sm btn-primary text-white mt-3">Ubah Password</button>
+                        <div class="form-control">
+                            <label class="label label-text">Password Baru</label>
+                            <input type="password" id="password_baru" name="password_baru" placeholder="password baru" class="input input-bordered" required/>
+                            <i class='bx bx-lock-alt text-2xl self-end -mt-8 mr-2'  id="togglePasswordBaru" style="cursor: pointer;"></i>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                    <div class="flex justify-end w-full pt-2 lg:w-1/2">
+                        <button type="submit" class="btn btn-sm btn-primary text-white mt-3">Ubah Password</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

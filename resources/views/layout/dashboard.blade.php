@@ -8,30 +8,19 @@
     <title>Sipa | {{ $title }}</title>
      
 	<link rel="icon" type="image/x-icon" href="{{ asset('/img/favicon.webp') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('/css/app.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('/css/croppie.css') }}">
-    <link rel="stylesheet" type="text/css" href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css'>
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/app.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('/css/croppie.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('/css/jquery.dataTables.min.css') }}">
+    <link rel="stylesheet" type="text/css" href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
 	@if(Request::is('manage/posts*')) 
 		<link rel="stylesheet" type="text/css" href="{{ asset('/css/trix.min.css') }}">
+		<style type="text/css">
+			trix-toolbar [data-trix-button-group="file-tools"] {
+				display: none;
+			}
+		</style>
 	@endif
 	
-	<style type="text/css">
-        img {
-			display: block;
-			max-width: 100%;
-		}
-		.preview {
-			overflow: hidden;
-			width: 160px;
-			height: 160px;
-			margin: 10px;
-			border: 1px solid red;
-		}
-		trix-toolbar [data-trix-button-group="file-tools"] {
-			display: none;
-		}
-	</style>
 </head>
 <body>
 
@@ -41,32 +30,5 @@
 
     @include('partial.dashboard-footer')
         
-    {{-- <script>
-		const modalToggle = document.querySelector('#upload-modal');
-		const image = document.querySelector('#image');
-		let reader,file;
-		
-		$('input#image').on('change', function(e) {
-			const files = e.target.files;
-			const done = function(url) {
-				image.src = url;
-				modalToggle.checked = true;
-			};
-
-			if ((files && files.length) > 0) {
-				file = files[0];
-
-				if (URL) {
-					done(URL.createObjectURL(file));
-				} else if (FileReader){
-					reader = new FileReader();
-					reader.onload = function(e) {
-						done(reader.result);
-					};
-					reader.readAsDataURL(file);
-				}
-			}
-		});
-	</script> --}}
 </body>
 </html>
