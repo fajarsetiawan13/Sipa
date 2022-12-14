@@ -56,7 +56,7 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th colspan="3">Penanggung Jawab</th>
+                                    <th colspan="3">Penanggung Jawab ODD</th>
                                 </tr>
                             </thead>
                             <tbody>
