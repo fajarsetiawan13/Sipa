@@ -60,73 +60,72 @@ class DashboardController extends Controller
         return redirect('/dashboard')->with('success', 'Password telah berhasil diubah!');
     }
 
-    public function change_avatar(Request $request)
-    {
-        $data = $request->image;
-        list($type, $data) = explode(';', $data);
-        list(, $data) = explode(',', $data);
-
-        $data = base64_decode($data);
-        $time = Hash::make((string)date('YmdHis'));
-        $image_name =   $time . '.jpg';
-        $path = public_path('storage/profile/') . $image_name;
-
-        file_put_contents($path, $data);
-        Storage::delete(auth()->user()->image);
-        User::where('id', auth()->user()->id)->update(['image' => 'profile/' . $image_name]);
-        return response()->json(['success' => 'done']);
-    }
-
-    public function add_odd(Request $request)
-    {
-        $data = $request->image;
-        list($type, $data) = explode(';', $data);
-        list(, $data) = explode(',', $data);
-
-        $data = base64_decode($data);
-        $time = Hash::make((string)date('YmdHis'));
-        $image_name =   $time . '.jpg';
-        $path = public_path('storage/odd_photos/') . $image_name;
-        $user_id =  auth()->user()->id;
-        $db_image_name = 'odd_photos/' . $image_name;
-
-        file_put_contents($path, $data);
-        Image::create(['user_id' => $user_id, 'image' => $db_image_name]);
-        return response()->json(['success' => 'done']);
-    }
-
-    // public function change_image(Request $request)
+    // public function change_avatar(Request $request)
     // {
-    //     $validatedData = $request->validate([
-    //         'image' => 'image|file|max:2048',
-    //     ]);
+    //     $data = $request->image;
+    //     list($type, $data) = explode(';', $data);
+    //     list(, $data) = explode(',', $data);
 
-    //     if ($request->file('image')) {
-    //         if ($request->oldImage) {
-    //             Storage::delete($request->oldImage);
-    //         }
-    //         $validatedData['image'] = $request->file('image')->store('profile');
-    //     }
+    //     $data = base64_decode($data);
+    //     $time = Hash::make((string)date('YmdHis'));
+    //     $image_name =   $time . '.jpg';
+    //     $path = public_path('storage/profile/') . $image_name;
 
-    //     User::where('id', auth()->user()->id)->update($validatedData);
-    //     return redirect('/dashboard')->with('success', 'Anda telah mengubah foto penanggung jawab!');
+    //     file_put_contents($path, $data);
+    //     Storage::delete(auth()->user()->image);
+    //     User::where('id', auth()->user()->id)->update(['image' => 'profile/' . $image_name]);
+    //     return response()->json(['success' => 'done']);
     // }
 
-    // public function add_photos(Request $request)
+    // public function add_odd(Request $request)
     // {
-    //     $validatedData = $request->validate([
-    //         'photos' => 'image|file|max:2048',
-    //     ]);
+    //     $data = $request->image;
+    //     list($type, $data) = explode(';', $data);
+    //     list(, $data) = explode(',', $data);
 
-    //     $validatedData['user_id'] = auth()->user()->id;
+    //     $data = base64_decode($data);
+    //     $time = Hash::make((string)date('YmdHis'));
+    //     $image_name =   $time . '.jpg';
+    //     $path = public_path('storage/odd_photos/') . $image_name;
+    //     $user_id =  auth()->user()->id;
+    //     $db_image_name = 'odd_photos/' . $image_name;
 
-    //     if ($request->file('photos')) {
-    //         $validatedData['image'] = $request->file('photos')->store('odd_photos');
-    //     }
-
-    //     Image::create($validatedData);
-    //     return back()->with('success', 'Foto berhasil ditambahkan!');
+    //     file_put_contents($path, $data);
+    //     Image::create(['user_id' => $user_id, 'image' => $db_image_name]);
+    //     return response()->json(['success' => 'done']);
     // }
+
+    public function change_image(Request $request)
+    {
+        $validatedData = $request->validate([
+            'image' => 'image|file|max:2048',
+        ]);
+        if ($request->file('avatar_input')) {
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['image'] = $request->file('avatar_input')->store('profile');
+        }
+
+        User::where('id', auth()->user()->id)->update($validatedData);
+        return redirect('/dashboard')->with('success', 'Anda telah mengubah foto penanggung jawab!');
+    }
+
+    public function add_photos(Request $request)
+    {
+        $validatedData = $request->validate([
+            'photos' => 'image|file|max:2048',
+        ]);
+
+        $validatedData['user_id'] = auth()->user()->id;
+
+        if ($request->file('odd_input')) {
+            $validatedData['image'] = $request->file('odd_input')->store('odd_photos');
+        }
+
+        Image::create($validatedData);
+        return back()->with('success', 'Foto berhasil ditambahkan!');
+    }
 
     public function delete_photos(Image $image)
     {
@@ -212,12 +211,11 @@ class DashboardController extends Controller
         $validatedData['title'] = $request->title;
         $validatedData['description'] = $request->description;
 
-        dd($request);
-        if ($request->file('image')) {
+        if ($request->file('cover_input')) {
             if ($request->oldImage) {
                 Storage::delete($request->oldImage);
             }
-            $request->file('image')->storeAs('/', 'cover.jpg');
+            $request->file('cover_input')->storeAs('/', 'cover.jpg');
         }
 
         CoverPage::whereId(1)->update($validatedData);

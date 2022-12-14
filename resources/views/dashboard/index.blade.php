@@ -250,20 +250,24 @@
         <h2 class="font-bold text-lg">Ubah Foto Penanggung Jawab</h2>
         <p class="py-4">Pastikan foto/gambar terlihat jelas dan tidak melebihi batan ukuran 2 MB.</p>
         <div class="flex flex-col justify-between gap-3">
-            <div class="flex">
-                <div id="avatar_upload" class="avatar_upload rounded-box"></div>
-            </div>
-            <div class="flex justify-center pt-3">
-                <span class="sr-only">Pilih Foto</span>
-                <input type="hidden" name="oldImage" value="{{ $account[0]->image }}">
-                <input type="file" id="avatar_input" name="avatar_input" class="avatar_input block w-full text-sm text-slate-500 file:rounded-xl file:text-sm file:py-2 file:px-4 file:border-0 file:bg-slate-300 hover:file:bg-slate-400"/>
-                @error('avatar_input')
-                <label class="label label-text-alt text-red-600">{{ $message }}</label>
-                @enderror
-            </div>
-            <div class="modal-action">
-                <button class="btn btn-primary crop_avatar text-white">Crop dan Unggah</button>
-            </div>
+            <form action="/changeimage" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
+                <div class="flex">
+                    <img src="{{ asset('storage/' . $account[0]->image) }}" id="avatar_preview" class="avatar_preview rounded-box mx-auto" width="160" height="160" alt="" />
+                </div>
+                <div class="flex justify-center pt-3">
+                    <span class="sr-only">Pilih Foto</span>
+                    <input type="hidden" name="oldImage" value="{{ $account[0]->image }}">
+                    <input type="file" id="avatar_input" name="avatar_input" onchange="previewAvatar()" class="avatar_input block w-full text-sm text-slate-500 file:rounded-xl file:text-sm file:py-2 file:px-4 file:border-0 file:bg-slate-300 hover:file:bg-slate-400"/>
+                    @error('avatar_input')
+                    <label class="label label-text-alt text-red-600">{{ $message }}</label>
+                    @enderror
+                </div>
+                <div class="modal-action">
+                    <button class="btn btn-primary crop_avatar text-white">Unggah</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -275,23 +279,55 @@
         <h2 class="font-bold text-lg">Ubah Foto Orang Dengan Demensia</h2>
         <p class="py-4">Pastikan foto/gambar terlihat jelas dan tidak melebihi batas ukuran 2 MB.</p>
         <div class="flex flex-col justify-between gap-2">
-            <div class="flex">
-                <div id="odd_upload" class="odd_upload rounded-box"></div>
-            </div>
-            <div class="flex justify-center pt-3">
-                <span class="sr-only">Pilih Foto</span>
-                <input type="file" id="odd_input" name="odd_input" class="odd_input block w-full text-sm text-slate-500 file:rounded-xl file:text-sm file:py-2 file:px-4 file:border-0 file:bg-slate-300 hover:file:bg-slate-400"/>
-                @error('odd_input')
-                <label class="label">
-                    <span class="label-text-alt text-red-600">{{ $message }}</span>
-                </label>
-                @enderror
-            </div>
-        </div>
-        <div class="modal-action">
-            <button class="btn btn-primary crop_odd text-white">Unggah</button>
+            <form action="/addphotos" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="flex">
+                    <img src="/img/default.webp" id="odd_preview" class="odd_preview rounded-box mx-auto" width="160" height="160" alt="" />
+                </div>
+                <div class="flex justify-center pt-3">
+                    <span class="sr-only">Pilih Foto</span>
+                    <input type="file" id="odd_input" name="odd_input" onchange="previewOdd()" class="odd_input block w-full text-sm text-slate-500 file:rounded-xl file:text-sm file:py-2 file:px-4 file:border-0 file:bg-slate-300 hover:file:bg-slate-400"/>
+                    @error('odd_input')
+                    <label class="label">
+                        <span class="label-text-alt text-red-600">{{ $message }}</span>
+                    </label>
+                    @enderror
+                </div>
+                <div class="modal-action">
+                    <button class="btn btn-primary crop_odd text-white">Unggah</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
+
+<script>
+    function previewAvatar(){
+        const image = document.querySelector('#avatar_input');
+        const imgPreview = document.querySelector('#avatar_preview');
+
+        imgPreview.style.display = 'block';
+
+        const oFReader = new FileReader();
+        oFReader.readAsDataURL(image.files[0]);
+
+        oFReader.onload = function(oFREvent){
+            imgPreview.src = oFREvent.target.result;
+        }
+    }
+    function previewOdd(){
+        const image = document.querySelector('#odd_input');
+        const imgPreview = document.querySelector('#odd_preview');
+
+        imgPreview.style.display = 'block';
+
+        const oFReader = new FileReader();
+        oFReader.readAsDataURL(image.files[0]);
+
+        oFReader.onload = function(oFREvent){
+            imgPreview.src = oFREvent.target.result;
+        }
+    }
+</script>
 
 @endsection

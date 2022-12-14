@@ -9,7 +9,6 @@
      
 	<link rel="icon" type="image/x-icon" href="{{ asset('/img/favicon.webp') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/app.min.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('/css/croppie.min.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('/css/jquery.dataTables.min.css') }}">
     <link rel="stylesheet" type="text/css" href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
 	@if(Request::is('manage/posts*')) 
