@@ -39,7 +39,6 @@ Route::get('/manage', [DashboardController::class, 'manage'])->middleware('admin
 Route::get('/manage/messages', [DashboardController::class, 'messages'])->middleware('admin');
 Route::get('/manage/cover', [DashboardController::class, 'edit_cover'])->middleware('admin');
 Route::put('/manage/cover', [DashboardController::class, 'change_cover']);
-// Route::post('/manage/image-cover', [DashboardController::class, 'change_image_cover']);
 
 Route::get('/manage/posts', [PostController::class, 'posts'])->middleware('admin');
 Route::get('/manage/posts/new', [PostController::class, 'newPost'])->middleware('admin');
@@ -55,8 +54,6 @@ Route::get('/tracking', [LocationController::class, 'index'])->middleware('auth'
 Route::get('/password', [DashboardController::class, 'edit_password'])->middleware('auth');
 Route::get('/password/{user}', [DashboardController::class, 'reset_password'])->middleware('admin');
 Route::post('/password', [DashboardController::class, 'ubah_password']);
-// Route::post('/dashboard/image-avatar', [DashboardController::class, 'change_avatar']);
-// Route::post('/dashboard/image-odd', [DashboardController::class, 'add_odd']);
 Route::delete('/photos/{image}/delete', [DashboardController::class, 'delete_photos']);
 Route::post('/addphotos', [DashboardController::class, 'add_photos']);
 Route::put('/changeimage', [DashboardController::class, 'change_image']);

@@ -60,41 +60,6 @@ class DashboardController extends Controller
         return redirect('/dashboard')->with('success', 'Password telah berhasil diubah!');
     }
 
-    // public function change_avatar(Request $request)
-    // {
-    //     $data = $request->image;
-    //     list($type, $data) = explode(';', $data);
-    //     list(, $data) = explode(',', $data);
-
-    //     $data = base64_decode($data);
-    //     $time = Hash::make((string)date('YmdHis'));
-    //     $image_name =   $time . '.jpg';
-    //     $path = public_path('storage/profile/') . $image_name;
-
-    //     file_put_contents($path, $data);
-    //     Storage::delete(auth()->user()->image);
-    //     User::where('id', auth()->user()->id)->update(['image' => 'profile/' . $image_name]);
-    //     return response()->json(['success' => 'done']);
-    // }
-
-    // public function add_odd(Request $request)
-    // {
-    //     $data = $request->image;
-    //     list($type, $data) = explode(';', $data);
-    //     list(, $data) = explode(',', $data);
-
-    //     $data = base64_decode($data);
-    //     $time = Hash::make((string)date('YmdHis'));
-    //     $image_name =   $time . '.jpg';
-    //     $path = public_path('storage/odd_photos/') . $image_name;
-    //     $user_id =  auth()->user()->id;
-    //     $db_image_name = 'odd_photos/' . $image_name;
-
-    //     file_put_contents($path, $data);
-    //     Image::create(['user_id' => $user_id, 'image' => $db_image_name]);
-    //     return response()->json(['success' => 'done']);
-    // }
-
     public function change_image(Request $request)
     {
         $validatedData = $request->validate([
@@ -220,21 +185,6 @@ class DashboardController extends Controller
 
         CoverPage::whereId(1)->update($validatedData);
         return back()->with('success', 'Berhasil Mengubah Sampul Halaman Beranda!');
-    }
-
-    public function change_image_cover(Request $request)
-    {
-        $data = $request->image;
-        list($type, $data) = explode(';', $data);
-        list(, $data) = explode(',', $data);
-
-        $data = base64_decode($data);
-        $image_name = 'cover.jpg';
-        $path = public_path('storage/') . $image_name;
-
-        file_put_contents($path, $data);
-        return response()->json(['success' => 'done']);
-        // return back()->with('success', 'Berhasil Mengubah Gambar Sampul Halaman Beranda!');
     }
 
     public function reset_password(User $user)
