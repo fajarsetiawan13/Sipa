@@ -197,7 +197,7 @@
                                     <button type="submit" class="indicator-item badge badge-error" onclick="return confirm('Apa Anda Yakin?')">hapus</button>
                                 </form>
                                 <div class="w-20 mask mask-squircle">
-                                    <img src="{{ asset('storage/'. $p->image) }}" width="80" height="80" alt="Foto ODD"/>
+                                    <img src="{{ asset('storage/'. $p->image) }}" width="80" height="80" class="max-w-[80px] max-h-[80px] object-cover" alt="Foto ODD"/>
                                 </div>
                             </div>
                             @endforeach
@@ -208,9 +208,9 @@
                     </div>
                     <div class="flex flex-col gap-2 lg:w-1/4">
                         @if(!empty($account[0]->image) && !($account[0]->image == 'default.webp'))
-                        <img src="{{ asset('storage/' . $account[0]->image) }}" class="rounded-box mx-auto" width="160" height="160" alt="{{ auth()->user()->name }}" />
+                        <img src="{{ asset('storage/' . $account[0]->image) }}" class="rounded-box mx-auto max-w-[160px] max-h-[160px] object-cover" width="160" height="160" alt="{{ auth()->user()->name }}" />
                         @else
-                        <img src="/img/default.webp" class="rounded-box mx-auto" width="160" height="160" alt="Current profile photo">
+                        <img src="/img/default.webp" class="rounded-box mx-auto max-w-[160px] max-h-[160px] object-cover" width="160" height="160" alt="Current profile photo">
                         @endif
                         <label class="btn btn-xs text-xs lg:btn-sm lg:text-sm bg-primary text-white border-0 modal-button mb-5 mx-auto" for="avatar-modal">Ubah Foto</label>
                     </div>
@@ -254,7 +254,7 @@
                 @csrf
                 @method('PUT')
                 <div class="flex">
-                    <img src="{{ asset('storage/' . $account[0]->image) }}" id="avatar_preview" class="avatar_preview rounded-box mx-auto" width="160" height="160" alt="" />
+                    <img src="{{ asset('storage/' . $account[0]->image) }}" id="avatar_preview" class="avatar_preview rounded-box mx-auto max-w-[160px] max-h-[160px] object-cover" width="160" height="160" alt="" />
                 </div>
                 <div class="flex justify-center pt-3">
                     <span class="sr-only">Pilih Foto</span>
@@ -282,7 +282,7 @@
             <form action="/addphotos" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="flex">
-                    <img src="/img/default.webp" id="odd_preview" class="odd_preview rounded-box mx-auto" width="160" height="160" alt="" />
+                    <img src="/img/default.webp" id="odd_preview" class="odd_preview rounded-box mx-auto max-w-[160px] max-h-[160px] object-cover" width="160" height="160" alt="" />
                 </div>
                 <div class="flex justify-center pt-3">
                     <span class="sr-only">Pilih Foto</span>

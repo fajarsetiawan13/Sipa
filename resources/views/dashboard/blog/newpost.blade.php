@@ -32,7 +32,7 @@
                             </div>
                         </div>
                         <div class="flex flex-col w-full gap-2 lg:w-1/4 lg:px-3">
-                            <img src="/img/article.webp" id="img-preview" class="img-preview rounded p-3 mx-auto" alt="Current profile photo">
+                            <img src="/img/article.webp" id="img-preview" class="img-preview rounded p-3 mx-auto max-w-[160px] max-h-[160px] object-cover" alt="Current profile photo">
                             <div class="flex flex-wrap justify-center items-center">
                                 <span class="sr-only">Choose profile photo</span>
                                 <input type="file" id="image" name="image" class="image block w-full text-sm text-slate-500 file:rounded-xl file:text-sm file:py-2 file:px-4 file:border-0 file:bg-slate-300 hover:file:bg-slate-400" onchange="previewImage()"/>

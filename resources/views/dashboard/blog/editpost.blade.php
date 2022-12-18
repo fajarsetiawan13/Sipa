@@ -40,7 +40,7 @@
                         <div class="flex flex-col w-full gap-2 lg:w-1/4 lg:px-3">
                             <div class="flex justify-center">
                                 <input type="hidden" name="oldImage" value="{{ $post->image }}">
-                                <img src="{{ asset('storage/' . $post->image) }}" id="img-preview" class="img-preview rounded p-3" alt="Current profile photo">
+                                <img src="{{ asset('storage/' . $post->image) }}" id="img-preview" class="img-preview rounded p-3 mx-auto max-w-[160px] max-h-[160px] object-cover" alt="Current profile photo">
                              </div>
                             <div class="flex flex-wrap justify-center items-center">
                                 <span class="sr-only">Choose profile photo</span>

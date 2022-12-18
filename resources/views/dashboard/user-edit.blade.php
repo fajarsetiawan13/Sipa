@@ -125,9 +125,9 @@
                         <div class="flex justify-center">
                             <figure class="p-3">
                                 @if(!empty($userData->image) && !($userData->image == 'default.webp'))
-                                <img src="{{ asset('storage/' . $userData->image) }}" class="rounded-box" width="160" height="160" alt="{{ auth()->user()->name }}" />
+                                <img src="{{ asset('storage/' . $userData->image) }}" width="160" height="160" class="rounded-box max-w-[160px] max-h-[160px] object-cover" alt="{{ auth()->user()->name }}" />
                                 @else
-                                <img src="/img/default.webp" class="rounded-box" width="160" height="160" alt="Current profile photo">
+                                <img src="/img/default.webp" width="160" height="160" class="rounded-box max-w-[160px] max-h-[160px] object-cover" alt="Current profile photo">
                                 @endif
                             </figure>
                         </div>

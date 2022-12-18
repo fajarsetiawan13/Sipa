@@ -8,14 +8,14 @@
             <h4 class="font-semibold uppercase text-primary text-sm lg:text-lg">Artikel</h4>
             <h2 class="font-bold text-slate-50 text-2xl mb-3 lg:text-3xl">{{ $title }}</h2>
         </div>
-        <div class="flex flex-wrap gap-3 justify-center">
+        <div class="flex flex-wrap gap-5 justify-center">
             @if(!empty($posts->count()))
             @foreach($posts as $p)
-            <div class="w-full lg:w-1/4 bg-white rounded-box overflow-hidden shadow-lg">
-                <img src="{{ asset('storage/' . $p->image) }}" alt="Programming" class="w-full mb-3">
-                <a href="/article/{{ $p->slug }}" class="block font-semibold text-sm text-dark lg:text-lg hover:text-primary truncate mb-2 px-3"><h3>{{ $p->title }}</h3></a>
+            <div class="max-w-[300px] bg-white rounded-box overflow-hidden">
+                <img src="{{ asset('storage/' . $p->image) }}" width="300" height="150" alt="Programming" class="max-w-[300px] max-h-[150px] overflow-clip mb-3">
+                <a href="/article/{{ $p->slug }}" class="block font-semibold text-xs text-dark lg:text-sm hover:text-primary  mb-2 px-3"><h3>{{ $p->title }}</h3></a>
                 <p class="font-normal text-xs text-slate-800 mb-2 px-3">{{ $p->excerpt }}</p>
-                <a href="/article/{{ $p->slug }}" class="btn btn-sm text-sm lg:btn-md lg:text-md btn-primary text-slate-50 px-5 hover:opacity-70 mb-3">Baca Selengkapnya</a>
+                <a href="/article/{{ $p->slug }}" class="btn btn-xs text-xs lg:btn-sm lg:text-sm btn-primary text-slate-50 px-5 hover:opacity-70 mb-3">Baca Selengkapnya</a>
            </div>
             @endforeach
             @else

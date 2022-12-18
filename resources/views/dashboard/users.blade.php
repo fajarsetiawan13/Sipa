@@ -70,7 +70,7 @@
                             <td class="whitespace-pre-line">{{ $u->email }}</td>
                             <td>
                                 @if(!empty($u->information->qr_image))
-                                <img src="{{ asset($u->information->qr_image) }}" alt="qrcode" height="32" width="32">
+                                <img src="{{ asset($u->information->qr_image) }}" alt="qrcode" height="32" width="32" class="max-w-[32px] max-h-[32px] object-cover">
                                 @else
                                 -
                                 @endif
@@ -80,38 +80,38 @@
                             </td>
                             <td>
                                 <div class="dropdown dropdown-left">
-                                    <label tabindex="0" class="btn btn-sm"><i class='bx bx-menu text-lg text-white'></i></label>
+                                    <label tabindex="0" class="btn btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgb(255, 255, 255);transform: ;msFilter:;"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"></path></svg></label>
                                     <ul tabindex="1" class="dropdown-content menu p-2 shadow bg-slate-50 rounded-box w-52">
                                         <li>
                                             @if($u->is_active == 0)
                                             <a href="/activate/{{ $u->id }}" onclick="return confirm('Apa Anda Yakin?')">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" style="fill: rgba(75, 75, 75, 1);transform: ;msFilter:;"><path d="m10 15.586-3.293-3.293-1.414 1.414L10 18.414l9.707-9.707-1.414-1.414z"></path></svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" width="24" height="24" style="fill: rgba(75, 75, 75, 1);transform: ;msFilter:;"><path d="m10 15.586-3.293-3.293-1.414 1.414L10 18.414l9.707-9.707-1.414-1.414z"></path></svg>
                                                 Aktivasi
                                             </a>
                                             @else
                                             <a href="/deactivate/{{ $u->id }}" onclick="return confirm('Apa Anda Yakin?')">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" style="fill: rgba(75, 75, 75, 1);transform: ;msFilter:;"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" width="24" height="24" style="fill: rgba(75, 75, 75, 1);transform: ;msFilter:;"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg>
                                                 Penonaktifan
                                             </a>
                                             @endif
                                         </li>
                                         <li>
                                             <a href="/information/{{ $u->id }}">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" style="fill: rgba(75, 75, 75, 1);transform: ;msFilter:;"><path d="M15 11h7v2h-7zm1 4h6v2h-6zm-2-8h8v2h-8zM4 19h10v-1c0-2.757-2.243-5-5-5H7c-2.757 0-5 2.243-5 5v1h2zm4-7c1.995 0 3.5-1.505 3.5-3.5S9.995 5 8 5 4.5 6.505 4.5 8.5 6.005 12 8 12z"></path></svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" width="24" height="24" style="fill: rgba(75, 75, 75, 1);transform: ;msFilter:;"><path d="M15 11h7v2h-7zm1 4h6v2h-6zm-2-8h8v2h-8zM4 19h10v-1c0-2.757-2.243-5-5-5H7c-2.757 0-5 2.243-5 5v1h2zm4-7c1.995 0 3.5-1.505 3.5-3.5S9.995 5 8 5 4.5 6.505 4.5 8.5 6.005 12 8 12z"></path></svg>
                                                 Detail Pengguna
                                             </a>
                                         </li>
                                         @if($u->is_active == 1)
                                         <li>
                                             <a href="/generate/{{ $u->id }}" onclick="return confirm('Apa Anda Yakin?')">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" style="fill: rgba(75, 75, 75, 1);transform: ;msFilter:;"><path d="M3 11h8V3H3zm2-6h4v4H5zM3 21h8v-8H3zm2-6h4v4H5zm8-12v8h8V3zm6 6h-4V5h4zm-5.99 4h2v2h-2zm2 2h2v2h-2zm-2 2h2v2h-2zm4 0h2v2h-2zm2 2h2v2h-2zm-4 0h2v2h-2zm2-6h2v2h-2zm2 2h2v2h-2z"></path></svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" width="24" height="24" style="fill: rgba(75, 75, 75, 1);transform: ;msFilter:;"><path d="M3 11h8V3H3zm2-6h4v4H5zM3 21h8v-8H3zm2-6h4v4H5zm8-12v8h8V3zm6 6h-4V5h4zm-5.99 4h2v2h-2zm2 2h2v2h-2zm-2 2h2v2h-2zm4 0h2v2h-2zm2 2h2v2h-2zm-4 0h2v2h-2zm2-6h2v2h-2zm2 2h2v2h-2z"></path></svg>
                                                 Buat QR-Code
                                             </a>
                                         </li>
                                         @endif
                                         <li>
                                             <label class="modal-button" for="role-{{ $u->id }}">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" style="fill: rgba(75, 75, 75, 1);transform: ;msFilter:;"><path d="M17.988 22a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h11.988zM9 5h6v2H9V5zm5.25 6.25A2.26 2.26 0 0 1 12 13.501c-1.235 0-2.25-1.015-2.25-2.251S10.765 9 12 9a2.259 2.259 0 0 1 2.25 2.25zM7.5 18.188c0-1.664 2.028-3.375 4.5-3.375s4.5 1.711 4.5 3.375v.563h-9v-.563z"></path></svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" width="24" height="24" style="fill: rgba(75, 75, 75, 1);transform: ;msFilter:;"><path d="M17.988 22a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h11.988zM9 5h6v2H9V5zm5.25 6.25A2.26 2.26 0 0 1 12 13.501c-1.235 0-2.25-1.015-2.25-2.251S10.765 9 12 9a2.259 2.259 0 0 1 2.25 2.25zM7.5 18.188c0-1.664 2.028-3.375 4.5-3.375s4.5 1.711 4.5 3.375v.563h-9v-.563z"></path></svg>
                                                 Ubah Role
                                             </label>
                                         </li>
@@ -120,7 +120,7 @@
                                                 @method('DELETE')
                                                 @csrf
                                                 <button type="submit" onclick="return confirm('Apa Anda Yakin?')">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline-flex mr-2" style="fill: rgba(75, 75, 75, 1);transform: ;msFilter:;"><path d="M5 20a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8h2V6h-4V4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2H3v2h2zM9 4h6v2H9zM8 8h9v12H7V8z"></path><path d="M9 10h2v8H9zm4 0h2v8h-2z"></path></svg>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline-flex mr-2" width="24" height="24" style="fill: rgba(75, 75, 75, 1);transform: ;msFilter:;"><path d="M5 20a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8h2V6h-4V4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2H3v2h2zM9 4h6v2H9zM8 8h9v12H7V8z"></path><path d="M9 10h2v8H9zm4 0h2v8h-2z"></path></svg>
                                                     Hapus
                                                 </button>
                                             </form>
