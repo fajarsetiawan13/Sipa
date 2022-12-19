@@ -21,7 +21,7 @@
                             <tbody>
                                 <tr class="hover">
                                     <td colspan="3">
-                                        <img src="{{ asset($userData->information->qr_image) }}" alt="qrcode" height="50" width="50">
+                                        <img src="{{ asset($userData->information->qr_image) }}" alt="qrcode" height="50" width="50" class="max-w-[200px] hover:w-[200px]">
                                     </td>
                                 </tr>
                                 <tr class="hover">

@@ -57,7 +57,8 @@
                             <th>#</th>
                             <th>Nama</th>
                             <th>Email</th>
-                            <th>QR-Code</th>
+                            <th>User's Page</th>
+                            {{-- <th>QR-Code</th> --}}
                             <th>Status</th>
                             <th>Aksi</th>
                         </tr>
@@ -68,13 +69,14 @@
                             <td>{{ $loop->iteration }}</td>
                             <td class="whitespace-pre-line">{{ $u->name }}</td>
                             <td class="whitespace-pre-line">{{ $u->email }}</td>
-                            <td>
+                            <td class="whitespace-pre-line"><a href="{{ $u->information->qr_url }}" class="link hover:link-primary" target="_blank">{{ $u->information->qr_url }}</a></td>
+                            {{-- <td>
                                 @if(!empty($u->information->qr_image))
                                 <img src="{{ asset($u->information->qr_image) }}" alt="qrcode" height="32" width="32" class="max-w-[32px] max-h-[32px] object-cover">
                                 @else
                                 -
                                 @endif
-                            </td>
+                            </td> --}}
                             <td>
                                 @if($u->is_active == 0) {{ 'tidak aktif' }} @else {{ 'aktif' }} @endif
                             </td>
