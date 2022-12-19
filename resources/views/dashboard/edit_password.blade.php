@@ -36,7 +36,8 @@
                         <div class="form-control">
                             <label class="label label-text">Password Lama</label>
                             <input type="password" id="password" name="password" placeholder="password lama" class="input input-bordered @error('password') input-error @enderror" required/>
-                            <i class="bx bx-lock-alt text-2xl self-end -mt-8 mr-2"  id="togglePassword" style="cursor: pointer;"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="absolute self-end mr-2" id="togglePasswordLock" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M20 12c0-1.103-.897-2-2-2h-1V7c0-2.757-2.243-5-5-5S7 4.243 7 7v3H6c-1.103 0-2 .897-2 2v8c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-8zM9 7c0-1.654 1.346-3 3-3s3 1.346 3 3v3H9V7z"></path></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="absolute self-end mr-2 invisible" id="togglePasswordUnlock" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M17 8V7c0-2.757-2.243-5-5-5S7 4.243 7 7v3H6c-1.103 0-2 .897-2 2v8c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-8c0-1.103-.897-2-2-2H9V7c0-1.654 1.346-3 3-3s3 1.346 3 3v1h2z"></path></svg>
                             @error('password')
                             <label class="label">
                                 <span class="label-text-alt text-red-600">{{ $message }}</span>
@@ -46,8 +47,7 @@
                         <div class="form-control">
                             <label class="label label-text">Password Baru</label>
                             <input type="password" id="password_baru" name="password_baru" placeholder="password baru" class="input input-bordered" required/>
-                            <i class='bx bx-lock-alt text-2xl self-end -mt-8 mr-2'  id="togglePasswordBaru" style="cursor: pointer;"></i>
-                        </div>
+                         </div>
                     </div>
                     <div class="flex justify-end w-full pt-2 lg:w-1/2">
                         <button type="submit" class="btn btn-sm btn-primary text-white mt-3">Ubah Password</button>
@@ -59,23 +59,27 @@
 </section>
 
 <script>
-    const togglePassword = document.querySelector('#togglePassword');
+    const togglePasswordLock = document.querySelector('#togglePasswordLock');
+    const togglePasswordUnlock = document.querySelector('#togglePasswordUnlock');
     const password = document.querySelector('#password');
-
-    togglePassword.addEventListener('click', function (){
-        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-        password.setAttribute('type', type);
-        this.classList.toggle('bx-lock-open-alt');
-    });
-
-    const togglePasswordBaru = document.querySelector('#togglePasswordBaru');
     const passwordBaru = document.querySelector('#password_baru');
 
-    togglePasswordBaru.addEventListener('click', function (){
-        const type = passwordBaru.getAttribute('type') === 'password' ? 'text' : 'password';
+    togglePasswordLock.addEventListener('click', function (){
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
         passwordBaru.setAttribute('type', type);
-        this.classList.toggle('bx-lock-open-alt');
+        togglePasswordLock.classList.add('invisible');
+        togglePasswordUnlock.classList.remove('invisible');
     });
+
+    togglePasswordUnlock.addEventListener('click', function (){
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+        passwordBaru.setAttribute('type', type);
+        togglePasswordUnlock.classList.add('invisible');
+        togglePasswordLock.classList.remove('invisible');
+    });
+
 </script>
 
 @endsection

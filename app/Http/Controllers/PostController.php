@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Information;
 use App\Models\Post;
+use App\Models\User;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
 use Illuminate\Http\Request;
@@ -21,7 +22,7 @@ class PostController extends Controller
     {
         return view('dashboard.blog.posts', [
             'title' => 'Artikel',
-            'information' => Information::where('user_id', auth()->user()->id)->get(),
+            'account' => User::where('id', auth()->user()->id)->get(),
             'posts' => Post::with('user')->latest()->paginate(6)
         ]);
     }
@@ -30,7 +31,7 @@ class PostController extends Controller
     {
         return view('dashboard.blog.newpost', [
             'title' => 'Buat Artikel Baru',
-            'information' => Information::where('user_id', auth()->user()->id)->get(),
+            'account' => User::where('id', auth()->user()->id)->get(),
         ]);
     }
 
@@ -38,7 +39,7 @@ class PostController extends Controller
     {
         return view('dashboard.blog.showpost', [
             'title' => 'Artikel - ' . $post->title,
-            'information' => Information::where('user_id', auth()->user()->id)->get(),
+            'account' => User::where('id', auth()->user()->id)->get(),
             'post' => $post
         ]);
     }
@@ -47,7 +48,7 @@ class PostController extends Controller
     {
         return view('dashboard.blog.editpost', [
             'title' => 'Edit Artikel - ' . $post->title,
-            'information' => Information::where('user_id', auth()->user()->id)->get(),
+            'account' => User::where('id', auth()->user()->id)->get(),
             'post' => $post
         ]);
     }
