@@ -47,20 +47,18 @@
 <section id="dashboard" class="py-16 min-h-screen bg-gradient-to-r from-slate-500 to-slate-800 z-0">
     <div class="container p-4 mx-auto flex flex-col-reverse w-full lg:flex-row">
         @include('partial.dashboard-sidebar')
-        <div class="flex-grow card bg-slate-50 shadow-lg rounded-box m-2 lg:w-3/4">
-            <div class="card-body overflow-x-scroll">
+        <div class="card bg-slate-50 shadow-lg rounded-box m-2 lg:w-3/4">
+            <div class="card-body overflow-auto">
                 <h2 class="card-title justify-between">{{ $title }}</h2>
                 <div class="divider my-0"></div>
-                <table class="table w-full display p-2" id="usersTable">
+                <table class="table table-fixed w-full">
                     <thead>
                         <tr>
-                            <th>#</th>
-                            <th>Nama</th>
-                            <th>Email</th>
-                            <th>User's Page</th>
-                            {{-- <th>QR-Code</th> --}}
-                            <th>Status</th>
-                            <th>Aksi</th>
+                            <th class="w-1/12 text-left">#</th>
+                            <th class="w-3/12 text-left">Nama</th>
+                            <th class="w-3/12 text-left">Email</th>
+                            <th class="w-3/12 text-left">Status</th>
+                            <th class="w-2/12 text-left">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -68,21 +66,13 @@
                         <tr class="hover">
                             <td>{{ $loop->iteration }}</td>
                             <td class="whitespace-pre-line">{{ $u->name }}</td>
-                            <td class="whitespace-pre-line">{{ $u->email }}</td>
-                            <td class="whitespace-pre-line"><a href="{{ $u->information->qr_url }}" class="link hover:link-primary" target="_blank">{{ $u->information->qr_url }}</a></td>
-                            {{-- <td>
-                                @if(!empty($u->information->qr_image))
-                                <img src="{{ asset($u->information->qr_image) }}" alt="qrcode" height="32" width="32" class="max-w-[32px] max-h-[32px] object-cover">
-                                @else
-                                -
-                                @endif
-                            </td> --}}
+                            <td class="truncate">{{ $u->email }}</td>
                             <td>
                                 @if($u->is_active == 0) {{ 'tidak aktif' }} @else {{ 'aktif' }} @endif
                             </td>
                             <td>
                                 <div class="dropdown dropdown-left">
-                                    <label tabindex="0" class="btn btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgb(255, 255, 255);transform: ;msFilter:;"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"></path></svg></label>
+                                    <label tabindex="0" class="btn btn-xs lg:btn-sm"><svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 lg:w-6 lg:h-6" width="24" height="24" viewBox="0 0 24 24" style="fill: rgb(255, 255, 255);transform: ;msFilter:;"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"></path></svg></label>
                                     <ul tabindex="1" class="dropdown-content menu p-2 shadow bg-slate-50 rounded-box w-52">
                                         <li>
                                             @if($u->is_active == 0)
@@ -161,6 +151,9 @@
                         @endforeach
                     </tbody>
                 </table>
+                <div class="btn-group justify-end">
+                    {{ $users->links() }}
+                </div>
             </div>
         </div>
     </div>

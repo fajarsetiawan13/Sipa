@@ -41,15 +41,15 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr class="hover">
                                 <td>Nama</td>
                                 <td class="whitespace-pre-line">{{ $m->name }}</td>
                             </tr>
-                            <tr>
+                            <tr class="hover">
                                 <td>Email/Telepon</td>
                                 <td class="whitespace-pre-line">{{ $m->email }}</td>
                             </tr>
-                            <tr>
+                            <tr class="hover">
                                 <td>Pesan</td>
                                 <td class="whitespace-pre-line">{{ $m->message }}</td>
                             </tr>

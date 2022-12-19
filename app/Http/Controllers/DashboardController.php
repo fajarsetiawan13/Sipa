@@ -115,7 +115,7 @@ class DashboardController extends Controller
     {
         return view('dashboard.users', [
             'title' => 'Manajemen Pengguna',
-            'users' => User::with(['information'])->get(),
+            'users' => User::with(['information'])->paginate(10),
             'account' => User::where('id', auth()->user()->id)->get(),
         ]);
     }

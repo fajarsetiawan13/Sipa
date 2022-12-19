@@ -27,7 +27,7 @@
                                 <tr class="hover">
                                     <td>Url</td>
                                     <td>:</td>
-                                    <td class="whitespace-pre-line">{{ $userData->information->qr_url }}</td>
+                                    <td class="whitespace-pre-line"><a href="$userData->information->qr_url" class="link hover:link-primary">{{ $userData->information->qr_url }}</a></td>
                                 </tr>
                                 <tr class="hover">
                                     <td>Page</td>

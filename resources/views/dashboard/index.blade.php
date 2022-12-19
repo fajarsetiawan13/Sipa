@@ -48,7 +48,7 @@
     <div class="container p-4 mx-auto flex flex-col-reverse lg:flex-row">
         @include('partial.dashboard-sidebar')
         <div class="card bg-slate-50 shadow-lg rounded-box m-2 lg:w-3/4">
-            <div class="card-body overflow-x-auto">
+            <div class="card-body">
                 <h2 class="card-title justify-between">{{ $title }}</h2>
                 <div class="divider my-0"></div>
                 <div class="flex flex-col-reverse lg:flex-row">
@@ -136,11 +136,11 @@
                                     <td class="whitespace-pre-line">{{ $c->family_name }}</td>
                                     <td class="whitespace-pre-line">{{ $c->phone_number }}</td>
                                     <td>
-                                        <label class="btn btn-xs text-xs lg:btn-sm lg:text-sm btn-info rounded-full tooltip inline-flex modal-button" for="edit-contact-{{ $c->id }}" data-tip="edit"><i class='bx bxs-edit text-sm text-white'></i></label>
+                                        <label class="btn btn-xs text-xs lg:btn-sm lg:text-sm btn-info rounded-full tooltip inline-flex modal-button" for="edit-contact-{{ $c->id }}" data-tip="edit"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" style="fill: rgb(255, 255, 255);transform: ;msFilter:;"><path d="m7 17.013 4.413-.015 9.632-9.54c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.756-.756-2.075-.752-2.825-.003L7 12.583v4.43zM18.045 4.458l1.589 1.583-1.597 1.582-1.586-1.585 1.594-1.58zM9 13.417l6.03-5.973 1.586 1.586-6.029 5.971L9 15.006v-1.589z"></path><path d="M5 21h14c1.103 0 2-.897 2-2v-8.668l-2 2V19H8.158c-.026 0-.053.01-.079.01-.033 0-.066-.009-.1-.01H5V5h6.847l2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2z"></path></svg></label>
                                         <form action="/dashboard/contact/{{ $c->id }}" method="POST" class="inline-flex">
                                             @csrf
                                             @method('delete')
-                                            <button class="btn btn-xs text-xs lg:btn-sm lg:text-sm btn-error rounded-full tooltip inline-flex" type="submit" data-tip="delete" onclick="return confirm('Are you sure?')"><i class='bx bx-trash text-sm text-white'></i></button>
+                                            <button class="btn btn-xs text-xs lg:btn-sm lg:text-sm btn-error rounded-full tooltip inline-flex" type="submit" data-tip="delete" onclick="return confirm('Are you sure?')"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" style="fill: rgb(255, 255, 255);transform: ;msFilter:;"><path d="M5 20a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8h2V6h-4V4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2H3v2h2zM9 4h6v2H9zM8 8h9v12H7V8z"></path><path d="M9 10h2v8H9zm4 0h2v8h-2z"></path></svg></button>
                                         </form>
                                         <input type="checkbox" id="edit-contact-{{ $c->id }}" class="modal-toggle" />
                                         <div class="modal modal-bottom sm:modal-middle">
