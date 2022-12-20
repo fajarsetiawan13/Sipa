@@ -23,7 +23,7 @@ class PostController extends Controller
         return view('dashboard.blog.posts', [
             'title' => 'Artikel',
             'account' => User::where('id', auth()->user()->id)->get(),
-            'posts' => Post::with('user')->latest()->paginate(6)
+            'posts' => Post::with('user')->latest()->paginate(5)
         ]);
     }
 

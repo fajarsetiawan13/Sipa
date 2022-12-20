@@ -13,7 +13,7 @@ class LocationController extends Controller
         return view('dashboard.tracking', [
             'title' => 'Riwayat Pelacakan',
             'account' => User::where('id', auth()->user()->id)->get(),
-            'track' => Location::where('user_id', auth()->user()->id)->get(),
+            'tracks' => Location::where('user_id', auth()->user()->id)->latest()->paginate(10),
         ]);
     }
 }

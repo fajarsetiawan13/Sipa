@@ -61,7 +61,8 @@
                     </label>
                     <ul tabindex="1" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-slate-50 rounded-box w-52">
                         <li><a href="/dashboard">Dasbor</a></li>
-                        <li><a href="/password">Ubah Kata Sandi</a></li>
+                        <li><label class="modal-button" for="avatar-modal">Ubah Foto Profil</label></li>
+                        <li><a href="/password">Ubah Password</a></li>
                         <li>
                             <form action="/logout" method="POST">
                                 @csrf

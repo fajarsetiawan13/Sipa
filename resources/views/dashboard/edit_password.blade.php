@@ -13,7 +13,7 @@
     <div class="modal-box">
         <label for="error-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
         <figure class="flex justify-center">
-            <img src="{{ asset('/img/icon-error.png') }}" alt="icon-error-png">
+            <img src="{{ asset('/img/icon-error.webp') }}" alt="icon-error-webp">
         </figure>
         <p class="mx-auto text-center">{{ session('error') }}</p>
         <div class="modal-action justify-center">
