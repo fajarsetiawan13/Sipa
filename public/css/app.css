@@ -2669,17 +2669,11 @@ body[dir="rtl"] .checkbox:checked,
 .invisible {
   visibility: hidden;
 }
-.static {
-  position: static;
-}
 .fixed {
   position: fixed;
 }
 .absolute {
   position: absolute;
-}
-.relative {
-  position: relative;
 }
 .inset-x-0 {
   left: 0px;
@@ -2691,26 +2685,11 @@ body[dir="rtl"] .checkbox:checked,
 .top-2 {
   top: 0.5rem;
 }
-.bottom-3 {
-  bottom: 0.75rem;
-}
 .bottom-0 {
   bottom: 0px;
 }
 .top-0 {
   top: 0px;
-}
-.-top-0 {
-  top: -0px;
-}
-.-top-6 {
-  top: -1.5rem;
-}
-.-top-8 {
-  top: -2rem;
-}
-.-bottom-0 {
-  bottom: -0px;
 }
 .z-0 {
   z-index: 0;
@@ -2731,9 +2710,6 @@ body[dir="rtl"] .checkbox:checked,
 }
 .mt-3 {
   margin-top: 0.75rem;
-}
-.-mt-8 {
-  margin-top: -2rem;
 }
 .mr-2 {
   margin-right: 0.5rem;
@@ -2759,23 +2735,17 @@ body[dir="rtl"] .checkbox:checked,
 .mr-0 {
   margin-right: 0px;
 }
+.-mt-8 {
+  margin-top: -2rem;
+}
 .mt-8 {
   margin-top: 2rem;
 }
 .mr-3 {
   margin-right: 0.75rem;
 }
-.mr-6 {
-  margin-right: 1.5rem;
-}
-.-mt-6 {
-  margin-top: -1.5rem;
-}
 .block {
   display: block;
-}
-.inline-block {
-  display: inline-block;
 }
 .flex {
   display: flex;
@@ -2877,6 +2847,15 @@ body[dir="rtl"] .checkbox:checked,
 }
 .w-2\/3 {
   width: 66.666667%;
+}
+.w-4\/12 {
+  width: 33.333333%;
+}
+.w-6\/12 {
+  width: 50%;
+}
+.w-5\/12 {
+  width: 41.666667%;
 }
 .max-w-\[80px\] {
   max-width: 80px;
@@ -3112,13 +3091,13 @@ body[dir="rtl"] .checkbox:checked,
   font-size: 0.75rem;
   line-height: 1rem;
 }
-.text-2xl {
-  font-size: 1.5rem;
-  line-height: 2rem;
-}
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
+}
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 .text-3xl {
   font-size: 1.875rem;
@@ -3162,10 +3141,6 @@ body[dir="rtl"] .checkbox:checked,
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
-.text-blue-500 {
-  --tw-text-opacity: 1;
-  color: rgb(59 130 246 / var(--tw-text-opacity));
-}
 .text-primary {
   --tw-text-opacity: 1;
   color: hsl(var(--p) / var(--tw-text-opacity));
@@ -3193,6 +3168,10 @@ body[dir="rtl"] .checkbox:checked,
 .text-base-content {
   --tw-text-opacity: 1;
   color: hsl(var(--bc) / var(--tw-text-opacity));
+}
+.text-blue-500 {
+  --tw-text-opacity: 1;
+  color: rgb(59 130 246 / var(--tw-text-opacity));
 }
 .shadow-lg {
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
