@@ -21,13 +21,16 @@
                             <tbody>
                                 <tr class="hover">
                                     <td colspan="3">
-                                        <img src="{{ asset($userData->information->qr_image) }}" alt="qrcode" height="50" width="50" class="max-w-[200px] hover:w-[200px]">
+                                        <img src="{{ asset($userData->information->qr_image) }}" alt="qrcode"
+                                            height="50" width="50" class="max-w-[200px] hover:w-[200px]">
                                     </td>
                                 </tr>
                                 <tr class="hover">
                                     <td>Url</td>
                                     <td>:</td>
-                                    <td class="whitespace-pre-line"><a href="$userData->information->qr_url" class="link hover:link-primary">{{ $userData->information->qr_url }}</a></td>
+                                    <td class="whitespace-pre-line"><a href="{{ $userData->information->qr_url }}"
+                                            class="link hover:link-primary">{{ $userData->information->qr_url }}</a>
+                                    </td>
                                 </tr>
                                 <tr class="hover">
                                     <td>Page</td>
@@ -138,26 +141,33 @@
                             @if($userData->images->count())
                             @foreach($userData->images as $p)
                             <div class="p-3 overflow-hidden">
-                                <img class="mask mask-squircle w-24 h-24" src="{{ asset('storage/'. $p->image) }}" alt="Foto ODD"/>
+                                <img class="mask mask-squircle w-24 h-24" src="{{ asset('storage/'. $p->image) }}"
+                                    alt="Foto ODD" />
                             </div>
                             @endforeach
                             @else
-                                <p class="pl-2 text-xs lg:text-sm">- Data Tidak Ditemukan -</p>
+                            <p class="pl-2 text-xs lg:text-sm">- Data Tidak Ditemukan -</p>
                             @endif
                         </div>
                     </div>
                     <div class="w-full lg:w-1/4">
                         <figure class="p-3">
                             @if(!empty($userData->image) && !($userData->image == 'default.webp'))
-                            <img src="{{ asset('storage/' . $userData->image) }}" width="160" height="160" class="rounded-box max-w-[160px] max-h-[160px] object-cover" alt="{{ auth()->user()->name }}" />
+                            <img src="{{ asset('storage/' . $userData->image) }}" width="160" height="160"
+                                class="rounded-box max-w-[160px] max-h-[160px] object-cover"
+                                alt="{{ auth()->user()->name }}" />
                             @else
-                            <img src="/img/default.webp" width="160" height="160" class="rounded-box max-w-[160px] max-h-[160px] object-cover" alt="Current profile photo">
+                            <img src="/img/default.webp" width="160" height="160"
+                                class="rounded-box max-w-[160px] max-h-[160px] object-cover"
+                                alt="Current profile photo">
                             @endif
                         </figure>
                     </div>
                 </div>
                 <div class="card-actions justify-start mt-3">
-                    <a href="/information/{{ $userData->id }}/edit" class="btn btn-xs text-xs lg:btn-sm lg:text-sm btn-primary text-white">Ubah Informasi Pengguna</a>
+                    <a href="/information/{{ $userData->id }}/edit"
+                        class="btn btn-xs text-xs lg:btn-sm lg:text-sm btn-primary text-white">Ubah Informasi
+                        Pengguna</a>
                 </div>
             </div>
         </div>
