@@ -2929,9 +2929,6 @@ body[dir="rtl"] .checkbox:checked,
 .overflow-hidden {
   overflow: hidden;
 }
-.overflow-clip {
-  overflow: clip;
-}
 .scroll-smooth {
   scroll-behavior: smooth;
 }
@@ -2945,6 +2942,9 @@ body[dir="rtl"] .checkbox:checked,
 }
 .rounded-full {
   border-radius: 9999px;
+}
+.rounded-lg {
+  border-radius: 0.5rem;
 }
 .rounded-md {
   border-radius: 0.375rem;
