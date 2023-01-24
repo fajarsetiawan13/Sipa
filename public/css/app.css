@@ -2851,6 +2851,9 @@ body[dir="rtl"] .checkbox:checked,
 .w-2\/3 {
   width: 66.666667%;
 }
+.min-w-\[300px\] {
+  min-width: 300px;
+}
 .max-w-\[80px\] {
   max-width: 80px;
 }
@@ -2920,8 +2923,14 @@ body[dir="rtl"] .checkbox:checked,
 .gap-5 {
   gap: 1.25rem;
 }
+.gap-4 {
+  gap: 1rem;
+}
 .self-end {
   align-self: flex-end;
+}
+.self-center {
+  align-self: center;
 }
 .overflow-auto {
   overflow: auto;

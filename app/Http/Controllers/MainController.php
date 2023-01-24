@@ -27,7 +27,7 @@ class MainController extends Controller
     {
         return view('main.articles', [
             'title' => 'Artikel',
-            'posts' => Post::orderBy('created_at', 'desc')->paginate(9)
+            'posts' => Post::orderBy('created_at', 'desc')->paginate(10)
         ]);
     }
 
