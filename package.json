@@ -19,6 +19,6 @@
     },
     "dependencies": {
         "croppie": "^2.6.5",
-        "daisyui": "^2.15.1"
+        "daisyui": "^2.51.6"
     }
 }

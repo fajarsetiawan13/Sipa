@@ -49,8 +49,7 @@
         <div class="w-full">
             <div class="max-w-xl mx-auto text-center">
                 <h4 class="font-semibold uppercase text-primary text-sm lg:text-lg">Bertemu</h4>
-                <h2 class="font-bold text-dark text-2xl mb-3 lg:text-3xl">Tolong hubungi kontak keluarga yang tersedia
-                    dibawah!</h2>
+                <h2 class="font-bold text-dark text-2xl mb-3 lg:text-3xl">Tolong hubungi kontak keluarga yang tersedia dibawah!</h2>
             </div>
         </div>
         <div class="flex justify-center">
@@ -61,39 +60,36 @@
                     <p>{{ $information->user->address }}</p>
                     <div class="flex flex-wrap justify-center">
                         @foreach($information->user->images as $usr)
-                        <img src="{{ asset('storage') . '/' . $usr->image }}" width="200" height="200"
-                            class="rounded-box p-1" />
+                        <img src="{{ asset('storage') . '/' . $usr->image }}" width="200" height="200" class="rounded-box p-1" />
                         @endforeach
                     </div>
-                    <span class="text-error font-bold">*Bagikian lokasi terkini atau "Share Location" melalui Whatsapp,
-                        supaya penanganan lebih cepat.</span>
+                    <span class="text-error font-bold">*Bagikian lokasi terkini atau "Share Location" melalui Whatsapp, supaya penanganan lebih cepat.</span>
                     <h2 class="text-primary font-bold mt-3">Kontak Penanggung Jawab</h2>
-                    <a href="{{ 'tel:' . $information->user->phone }}" target="_blank"
-                        class="btn btn-md btn-accent">Telepon Selular</a>
-                    <a href="{{ 'https://wa.me/' . $information->user->phone . '?text=Saya menemukan keluarga Anda!'}}"
-                        target="_blank" class="btn btn-md text-white btn-primary">WhatsApp</a>
+                    <a href="{{ 'tel:' . $information->user->phone }}" target="_blank" class="btn btn-md btn-accent">Telepon Selular</a>
+                    <a href="{{ 'https://wa.me/' . $information->user->phone . '?text=Saya menemukan keluarga Anda!'}}" target="_blank" class="btn btn-md text-white btn-primary">WhatsApp</a>
 
                     @if(!empty($information->user->contact))
                     <h2 class="text-primary font-bold mt-3">Kontak Keluarga</h2>
+
                     @foreach($information->user->contact as $uc)
-                    <a href="{{ 'https://wa.me/' . $uc->phone_number . '?text=Saya menemukan keluarga Anda!'}}"
-                        target="_blank" class="btn btn-md text-white btn-primary">WhatsApp</a>
+                    <a href="{{ 'https://wa.me/' . $uc->phone_number . '?text=Saya menemukan keluarga Anda!'}}" target="_blank" class="btn btn-md text-white btn-primary">WhatsApp Keluarga {{ $loop->iteration }}</a>
                     @endforeach
+
                     @endif
 
-                    <div class="card-actions">
+                    {{-- <div class="card-actions">
                         <form action="/meet/{{ $information->user->id }}" method="POST">
                             @csrf
                             <input type="text" id="latitude" name="latitude" hidden>
                             <input type="text" id="longitude" name="longitude" hidden>
                             <button type="submit" class="btn btn-md btn-secondary">Bagikan Lokasi Terkini</button>
                         </form>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
 
-        <script>
+        {{-- <script>
             function getLocation() {
                 if (navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(showPosition);
@@ -105,7 +101,7 @@
                 document.getElementById("longitude").value = position.coords.longitude;
             }
             getLocation();
-        </script>
+        </script> --}}
     </div>
 </section>
 
